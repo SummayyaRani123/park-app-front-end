@@ -1,0 +1,226 @@
+[
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_aboutus.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_aboutus.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-hdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-hdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_mainseacrh_toilets.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_mainseacrh_toilets.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_auth_darkbg.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_auth_darkbg.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_node_modules_reactnativepaper_src_assets_backchevron.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\node_modules_reactnativepaper_src_assets_backchevron.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_walkingroutes.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_walkingroutes.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_alllocations_walkingroute.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_alllocations_walkingroute.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backiconmask.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\node_modules_reactnavigation_elements_src_assets_backiconmask.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_darkmode.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_darkmode.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-xxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-xxhdpi\\node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_alllocations_carparking.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_alllocations_carparking.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_auth_logo.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_auth_logo.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_home_save.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_home_save.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_mainseacrh_walkingroute.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_mainseacrh_walkingroute.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable_rn_edit_text_material.xml.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\drawable\\rn_edit_text_material.xml"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_alllocations_dogwalks.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_alllocations_dogwalks.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_auth_splash.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_auth_splash.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_reviews_checkcircle.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_reviews_checkcircle.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_alllocations_toilet.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_alllocations_toilet.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_mainseacrh_dogwalks.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_mainseacrh_dogwalks.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_privacy.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_privacy.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_saved.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_saved.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_home_currentpin.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_home_currentpin.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_locationdetail_location.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_locationdetail_location.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_locationdetail_walking.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_locationdetail_walking.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_locationdetail_icondirections.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_locationdetail_icondirections.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_translator.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_translator.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_home_carparkings.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_home_carparkings.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_home.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_home.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_mainseacrh_carparkings.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_mainseacrh_carparkings.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-hdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-hdpi\\node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-xhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-xhdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_home_currentlocation.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_home_currentlocation.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_locationdetail_review.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_locationdetail_review.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_carparkings.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_carparkings.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-xhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-xhdpi\\node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_locationdetail_directions.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_locationdetail_directions.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-xxxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-xxxhdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_home_eye.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_home_eye.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_contactus.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_contactus.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-xxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-xxhdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_dogwalks.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_dogwalks.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-mdpi_src_assets_drawer_toilets.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\src_assets_drawer_toilets.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\drawable-xxxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\generated\\res\\react\\release\\drawable-xxxhdpi\\node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\build\\intermediates\\merged_res\\release\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\MtechubProjects\\park-app-frontend\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    }
+]
