@@ -1,22 +1,16 @@
 import React, { useRef,useState,useEffect }from "react";
-import { Text, SafeAreaView, View,TouchableOpacity,
-  KeyboardAvoidingView,} from "react-native";
- import { TextInput,Avatar } from 'react-native-paper';
+import { Text, SafeAreaView, View} from "react-native";
+ import { TextInput,Avatar } from 'react-native-paper'
+
   ////////////////app components////////////////
 import CustomButton from "../Button/CustomButton";
-import CamerBottomSheet from "../CameraBottomSheet/CameraBottomSheet";
 import AddedtosaveBottomSheet from "./AddtoSave";
 
 /////////////////app pakages//////////////
 import RBSheet from "react-native-raw-bottom-sheet";
 
-//////////////////pickers///////////////
-import ImagePicker from 'react-native-image-crop-picker';
-
-////////////app icons///////////////
-import Entypo from 'react-native-vector-icons/Entypo';
-import Ionicons from 'react-native-vector-icons/Ionicons'
-
+//////////////////app pakages////////////
+import {Snackbar } from 'react-native-paper';
 
 ////////////////app redux///////////
 import { useSelector } from 'react-redux';
@@ -39,9 +33,16 @@ const FindingsBottomSheet= (props) => {
 
         //ReviewAdded state and funnction
         const refRBSheetSaveAdded = useRef();  
+
+           ///////////////button states/////////////
+   const [loading, setloading] = useState(0);
+   const [disable, setdisable] = useState(0);
+   const [visible, setVisible] = useState(false);
+   const [snackbarValue, setsnackbarValue] = useState({value: '', color: ''});
+   const onDismissSnackBar = () => setVisible(false);
         
 ///////////////Data states/////////
-        const [Findings,  setFindings] = React.useState();
+        const [Findings,  setFindings] = React.useState('');
  //////////////////////Api Calling/////////////////
  const AddFindings = async() => {
   var user= await AsyncStorage.getItem('Userid')
@@ -58,6 +59,8 @@ const FindingsBottomSheet= (props) => {
     })
       .then(function (response) {
         console.log("response", JSON.stringify(response.data))
+        setloading(0);
+        setdisable(0);
         refRBSheetSaveAdded.current.open()
 
       })
@@ -65,6 +68,19 @@ const FindingsBottomSheet= (props) => {
         console.log("error", error)
       })
   }
+  //Api form validation
+const formValidation = async () => {
+  // input validation
+  if (Findings == '') {
+    setsnackbarValue({value: "Please Enter Findings", color: 'red'});
+    setVisible('true');
+  }
+  else{
+    setloading(1);
+    setdisable(1);
+    AddFindings()
+  }
+}
   return (
       <RBSheet
          //sstyle={{flex:1}}
@@ -87,22 +103,24 @@ const FindingsBottomSheet= (props) => {
             backgroundColor: theme ===false? 'white':'black'
         }
         }}
-
       >
-
          <View style={{flexDirection:'column', marginHorizontal:20,marginVertical:20}}>
 
 <View style={styles.textAreaContainer}>
     <TextInput
           onChangeText={setFindings}
-      style={[styles.papertextArea,,{  backgroundColor: theme === false? 'white':'rgba(52, 52, 52, 0.5)'}]}
-      mode={'outlined' }
+      style={[styles.papertextArea,{backgroundColor: theme === false? 'white':'rgba(52, 52, 52, 0.5)',
+   // color: theme === false? ''
+    }]}
+      mode={'outlined'}
       outlineColor={Colors.Appthemecolorprimary}
       activeOutlineColor={Colors.Appthemecolorprimary}
       placeholder="Add Your Findings"
-      placeholderTextColor={ theme === false?"black":'white'}
+      placeholderTextColor={theme === false?"black":'white'}
       numberOfLines={10}
       multiline={true}
+      textColor={theme === false?"black":'white'}
+      theme={{ colors: 'red'}}
     />
   </View>
   <View style={styles.button}>
@@ -110,10 +128,10 @@ const FindingsBottomSheet= (props) => {
               title={'Add'}
               widthset={'80%'}
               iscolor={'here'}
-            //   loading={loading}
-            //   disabled={disable}
+              loading={loading}
+              disabled={disable}
             onPress={()=>{
-              AddFindings()
+              formValidation()
          
             }}
             /></View> 
@@ -125,6 +143,17 @@ const FindingsBottomSheet= (props) => {
               onClose={() => {refRBSheetSaveAdded.current.close(),props.refRBSheet.current.close()}}
               title={'Add to Saved'}
             />
+                  <Snackbar
+          duration={400}
+          visible={visible}
+          onDismiss={onDismissSnackBar}
+          style={{
+            backgroundColor: snackbarValue.color,
+            marginBottom:'20%',
+            zIndex: 999,
+          }}>
+          {snackbarValue.value}
+        </Snackbar>
       </RBSheet>
 
   );

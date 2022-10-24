@@ -52,6 +52,7 @@ const DarkModestyles = StyleSheet.create({
       color:'white',
       fontWeight: '400',
       fontSize: hp('1.5%'),
+      width:wp(74)
     },
     cardtext:
     {

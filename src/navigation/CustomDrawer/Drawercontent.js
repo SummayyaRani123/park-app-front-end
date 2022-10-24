@@ -43,14 +43,14 @@ export function DrawerContent(props) {
     const onToggleSwitch = async () => {
 
         if (theme === false) {
-            ///setIsSwitchOn('LIGHT')
-            dispatch(setTheme(false));
+            //setIsSwitchOn('LIGHT')
+            dispatch(setTheme(true));
             console.log('theme here LIGHT:', theme)
             await AsyncStorage.setItem('Apptheme', 'LIGHT');
         }
         else {
             //setIsSwitchOn('DARK')
-            dispatch(setTheme(true));
+            dispatch(setTheme(false));
             console.log('theme here DARK:', theme)
             await AsyncStorage.setItem('Apptheme', 'DARK');
         }
@@ -74,10 +74,11 @@ export function DrawerContent(props) {
 
 
     return (
-        <View style={theme === false ? LightModestyles.container : DarkModestyles.container}>
+        <View style={theme === false ? [LightModestyles.container,{marginTop:hp(5)} ]: 
+        [DarkModestyles.container,{marginTop:hp(5)} ]}>
             <DrawerContentScrollView {...props}>
                 <View style={theme === false ? LightModestyles.drawerContent : DarkModestyles.drawerContent}>
-                    <DrawerItem
+                    {/* <DrawerItem
                         icon={({ color, size }) => (
                             <Image
                                 source={require('../../assets/Drawer/Home.png')}
@@ -91,7 +92,7 @@ export function DrawerContent(props) {
                     <Text style={{color:    Colors.Appthemecolorprimary,fontWeight:'bold',
                 textAlign:'center',fontSize:hp(3)
                 }}>
-                        Search Places{theme}</Text>
+                        Search Places{theme}</Text> */}
                     <DrawerItem
                     icon={({ color, size }) => (
                         <Image
@@ -149,7 +150,7 @@ export function DrawerContent(props) {
                     />
           
                     <TouchableRipple
-                    //onPress={() => {toggleTheme()}}
+                    onPress={() => {onToggleSwitch()}}
                     >
 
                         <View style={LightModestyles.preference}>

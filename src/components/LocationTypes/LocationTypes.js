@@ -1,5 +1,5 @@
 import React, { useRef,useState,useEffect }from "react";
-import { Text, SafeAreaView, View,TouchableOpacity,FlatList,Image,
+import { Text, SafeAreaView, View,TouchableOpacity,FlatList,Image,ScrollView,
   KeyboardAvoidingView,} from "react-native";
  import { TextInput,Avatar } from 'react-native-paper';
   ////////////////app components////////////////
@@ -160,7 +160,7 @@ const navigation = useNavigation();
         height={500}
         customStyles={{
           wrapper: {
-            backgroundColor: 'rgba(52, 52, 52, 0.9)',
+            backgroundColor: 'rgba(52, 52, 52, 0.7)',
           },
           draggableIcon: 
           {
@@ -175,22 +175,36 @@ const navigation = useNavigation();
             borderTopWidth:15,
         }
         }}
-
       >
-
+<ScrollView
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+>
 <View style={{
   //backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
-      height:hp(6),
+      height:hp(5),justifyContent:'center',
     width:wp(100),borderTopLeftRadius:wp(2),borderTopRightRadius:wp(2)}}>
      <TouchableOpacity onPress={()=> props.refRBSheet.current.close()}>
-      <View style={{flexDirection:'row',marginHorizontal:wp(5)}}>
-      <Ionicons name={'chevron-down'} size={25} 
-          color= {theme ===false? 'black':'white'}
+      <View style={{flexDirection:'row',marginHorizontal:wp(5),alignItems:'center'}}>
+      <Ionicons name={'chevron-down'} size={23} 
+          color= {theme ===false? 'grey':'white'}
           onPress={() =>   props.refRBSheet.current.close()}/>
-          <View>
+                    <View style={{marginLeft:wp(3)}}>
+          <Text 
+              style={[LightModestyles.cardDescription,
+                {color:Colors.Appthemecolorprimary
+                 // theme === false ? 'black':'white'
+                }]}
+                >What 's Nearby</Text>
+                      <Text
+              style={[LightModestyles.cardsubDescription,
+                {color:theme === false ? 'black':'white'}]}
+                >Lorem</Text>
+          </View>
+          {/* <View>
           <Text style={styles.sidetext}>What's Nearby</Text>
           <Text style={styles.sidetext}>Lorem ipsum</Text>
-          </View>
+          </View> */}
           </View>
       </TouchableOpacity>
       </View>
@@ -217,21 +231,16 @@ const navigation = useNavigation();
                 data={WalkingRoutes}
                 renderItem={({ item }) =>
                 <TouchableOpacity> 
-                 <View style={styles.flatlistmainview}>
-     
+             <View style={styles.flatlistmainview}>
                     <Image
-                     source={{uri:item.images.length === 0 ?null:item.images[0].image_url}}
-                     //source={require("../../assets/banners/CarParking.png")}
-                     //source={{uri:item.images}}
-                      style={{height:hp(10),width:wp(20),borderRadius:item.logo === 0 || item.logo ===27 ?wp(0):wp(5)}}
-                      imageStyle={{
-                        borderRadius: 15, borderWidth: 1,
-                        borderColor: 'black', padding: 10
-                      }}>
+                           source={{uri:item.images.length === 0 ?null:item.images[0].image_url}}
+                           style={styles.flatlistimgesview}
+                           imageStyle={styles.flatlistimage}>
                     </Image>
-          
-                    <Text style={{ color: 'white',width:wp(20),textAlign:'center',marginTop:hp(1) }}>
+                    <Text style={styles.flatlisttitletext}>
                       {item.title}</Text> 
+                      <Text style={[styles.flatlisttitletext,{bottom:hp(1)}]}>
+                  {item.distance} Km</Text> 
                   </View>
                 </TouchableOpacity>
                 }
@@ -262,20 +271,15 @@ props.refRBSheet.current.close()}
                 data={DogWalks}
                 renderItem={({ item }) =>
                 <View style={styles.flatlistmainview}>
-                
                     <Image
                            source={{uri:item.images.length === 0 ?null:item.images[0].image_url}}
-                                // source={{uri:item.images}}
-                  //source={require("../../assets/banners/CarParking.png")}
-                      style={{height:hp(10),width:wp(20),borderRadius:item.logo === 0 || item.logo ===27 ?wp(0):wp(5)}}
-                      imageStyle={{
-                        borderRadius: 15, borderWidth: 1,
-                        borderColor: 'black', padding: 10
-                      }}>
+                           style={styles.flatlistimgesview}
+                           imageStyle={styles.flatlistimage}>
                     </Image>
-                
-                    <Text style={{ color: 'white',width:wp(20),textAlign:'center',marginTop:hp(1) }}>
+                    <Text style={styles.flatlisttitletext}>
                       {item.title}</Text> 
+                      <Text style={[styles.flatlisttitletext,{bottom:hp(1)}]}>
+                  {item.distance} Km</Text> 
                   </View>
                 }
                 keyExtractor={(item, index) => index}
@@ -306,22 +310,17 @@ props.refRBSheet.current.close()
       <FlatList
                 data={CarParking}
                 renderItem={({ item }) =>
-                              <View style={styles.flatlistmainview}>
-                    
-                    <Image
-                              source={{uri:item.images.length === 0 ?null:item.images[0].image_url}}
-                                // source={{uri:item.images}}
-             //source={require("../../assets/mainSeacrh/CarParkings.png")}
-                      style={{height:hp(10),width:wp(20),borderRadius:item.logo === 0 || item.logo ===27 ?wp(0):wp(5)}}
-                      imageStyle={{
-                        borderRadius: 15, borderWidth: 1,
-                        borderColor: 'black', padding: 10
-                      }}>
-                    </Image>
-                    
-                    <Text style={{ color: 'white',width:wp(20),textAlign:'center',marginTop:hp(0) }}>
-                      {item.title}</Text> 
-                  </View>
+                <View style={styles.flatlistmainview}>
+                <Image
+                       source={{uri:item.images.length === 0 ?null:item.images[0].image_url}}
+                       style={styles.flatlistimgesview}
+                       imageStyle={styles.flatlistimage}>
+                </Image>
+                <Text style={styles.flatlisttitletext}>
+                  {item.title}</Text> 
+                  <Text style={[styles.flatlisttitletext,{bottom:hp(1)}]}>
+                  {item.distance} Km</Text> 
+              </View>
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
@@ -350,21 +349,16 @@ props.refRBSheet.current.close()}
                 data={Toilets}
                 renderItem={({ item }) =>
                 <View style={styles.flatlistmainview}>
-             
-                    <Image
-                             source={{uri: item.images.length === 0 ?null:item.images[0].image_url}}
-                                 //source={{uri:item.images}}
-                     //source={require("../../assets/mainSeacrh/CarParkings.png")}
-                      style={{height:hp(10),width:wp(20),borderRadius:item.logo === 0 || item.logo ===27 ?wp(0):wp(5)}}
-                      imageStyle={{
-                        borderRadius: 15, borderWidth: 1,
-                        borderColor: 'black', padding: 10
-                      }}>
-                    </Image>
-                
-                    <Text style={{ color: 'white',width:wp(20),textAlign:'center',marginTop:hp(0) }}>
-                      {item.title}</Text> 
-                  </View>
+                <Image
+                       source={{uri:item.images.length === 0 ?null:item.images[0].image_url}}
+                       style={styles.flatlistimgesview}
+                       imageStyle={styles.flatlistimage}>
+                </Image>
+                <Text style={styles.flatlisttitletext}>
+                  {item.title}</Text> 
+                  <Text style={[styles.flatlisttitletext,{bottom:hp(1)}]}>
+                  {item.distance} Km</Text> 
+              </View>
                 }
                 keyExtractor={(item, index) => index}
                 horizontal={true}
@@ -373,6 +367,7 @@ props.refRBSheet.current.close()}
               />
 }
 </View>
+</ScrollView>
       </RBSheet>
 
   );

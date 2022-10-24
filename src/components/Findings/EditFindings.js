@@ -108,6 +108,8 @@ const EditFindingsBottomSheet= (props) => {
       placeholderTextColor={ theme === false?"black":'white'}
       numberOfLines={10}
       multiline={true}
+      textColor={theme === false?"black":'white'}
+      theme={{ colors: 'red'}}
     />
   </View>
   <View style={styles.button}>

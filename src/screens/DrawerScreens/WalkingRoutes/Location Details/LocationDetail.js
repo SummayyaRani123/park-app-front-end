@@ -1,5 +1,5 @@
 import React, { useRef,useState,useEffect }from "react";
-import { Text, SafeAreaView, View,Image,
+import { Text, SafeAreaView, View,Image,ActivityIndicator,
     TouchableOpacity,ScrollView,
 } from "react-native";
 
@@ -70,15 +70,16 @@ const [findingsid, setfindingsID]=useState('')
 const [findparkCar, setfindParkCar]=useState('')
 const [findparkCarCoord, setfindParkCarCoord]=useState('')
 
+const [dataloader,setdataloader] = useState(true);
+
 //get data api calling
 const GetLocationDetail= async() => {
-  console.log("here id:",locationid)
 axios({
   method: 'GET',
   url:BASE_URL+'location/getLocationById/'+predata.locid,
 })
 .then(async function (response) {
-  console.log("response in location detail", JSON.stringify(response.data.data.images))
+  //console.log("response in location detail", JSON.stringify(response.data.data.images))
   setdata(response.data.data)
   setLocationTitle(response.data.data.title)
   setLocationDesc(response.data.data.description)
@@ -87,21 +88,23 @@ axios({
   await AsyncStorage.setItem('Locid',response.data.data._id);
   GetFindingsDetail()
   setsliderimage(response.data.data.images)
+  setdataloader(false)
 })
 .catch(function (error) {
   console.log("error", error)
 })
-}                                                                                                          
+}                         
+const [findingsmessage, setfindingsmessage]=useState('')                                                                                 
 //get findings api calling
 const GetFindingsDetail= async(props) => {
   var user= await AsyncStorage.getItem('Userid')
-  console.log("userid:",user)
 axios({
   method: 'GET',
   url:BASE_URL+'findings/getUserFindingForLocation/?location_id='+predata.locid+'&userId='+user,
 })
 .then(async function (response) {
-  console.log("response in location detail", JSON.stringify(response.data))
+  console.log("response in location detail findings", JSON.stringify(response.data))
+  setfindingsmessage(response.data.result)
   setfindingsID(response.data.result._id)
   setfindings(response.data.result.findings)
 })
@@ -138,6 +141,7 @@ useEffect(() => {
 
 ///////////////Data states/////////
 const [Findings,  setFindings] = React.useState();
+const [saved,  setsaved] = React.useState(true);
 //////////////////////Api Calling/////////////////
 const AddSavedLocation = async() => {
  var user= await AsyncStorage.getItem('Userid')
@@ -148,7 +152,7 @@ const AddSavedLocation = async() => {
      url: BASE_URL + 'findings/addFindings',
      data: {
        location_id: predata.locid,
-       userId: user,
+       userId: user
        //findings: Findings
      },
    })
@@ -161,8 +165,33 @@ const AddSavedLocation = async() => {
        console.log("error", error)
      })
  }
-
-
+ const unSavedLocation = async(props) => {
+  console.log("id here:",props)
+    axios({
+      method: 'DELETE',
+      url: BASE_URL + 'findings/deleteFindings/'+props,
+    })
+      .then(function (response) {
+        console.log("response unsaved", JSON.stringify(response.data))
+        refRBSheetSaveAdded.current.open()
+ 
+      })
+      .catch(function (error) {
+        console.log("error", error)
+      })
+  }
+const togglesavedlocation=(props)=>{
+  if(saved=== true)
+  {
+    AddSavedLocation()
+    setsaved(false)
+  }
+  else
+  {
+    unSavedLocation(props)
+    setsaved(true)
+  }
+}
   return (
     <SafeAreaView style={theme === false?LightModestyles.container: DarkModestyles.container}>
         <ScrollView
@@ -174,9 +203,10 @@ headerlabel={
   predata.navplace === 'Walking Routes'?'Walking Routes':  predata.navplace === 'Dogs Walk'?'Dog Walks': 
   predata.navplace === 'Car Parkings'?'Car Parking':  predata.navplace === 'Toilets'?'Toilets': null
 }
-iconPress={() => {navigation.navigate('MapSearch')}}
+iconPress={() => {navigation.goBack()}}
 icon={'chevron-back'}
 />
+
   {  predata.navplace === 'Walking Routes'?   
    <ImageSlider
         imagesarray={sliderimage}
@@ -190,198 +220,218 @@ icon={'chevron-back'}
         />: predata.navplace === 'Toilets'?   
          <ImageSlider
         imagesarray={sliderimage}
-        />:null}
-    
-        <View style={{marginHorizontal:wp(5),marginTop:hp(2)}}>
+        />: <ActivityIndicator
+        size={'large'}
+        style={{marginTop: hp(45)}}
+      />}
+
+      {dataloader === true?
+      <ActivityIndicator
+      size={'large'}
+      style={{marginTop: hp(45)}}
+    />:
+    <View>
+              <View style={{marginHorizontal:wp(5),marginTop:hp(2)}}>
         
-       {     predata.navplace === 'Car Parkings'? 
-       <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
-       <Text style={theme === false?LightModestyles.mainheadingtext: DarkModestyles.mainheadingtext}>
-            {LocationTitle}
-            {route.id}</Text>
-            <View>
-            <View style={{flexDirection:'row',alignItems:'center',
-   justifyContent:'space-between',
-   marginHorizontal:wp(0)}}>
+        {     predata.navplace === 'Car Parkings'? 
+        <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+        <Text style={theme === false?LightModestyles.mainheadingtext: DarkModestyles.mainheadingtext}>
+             {LocationTitle}
+          </Text>
+             <View>
+             <View style={{flexDirection:'row',alignItems:'center',
+    justifyContent:'space-between',
+    marginHorizontal:wp(0)}}>
+              <Image 
+                   source={require("../../../../assets/LocationDetail/Icon-directions.png") }
+                   style={LightModestyles.textlasticon}
+                   resizeMode='contain'
+                 />
+        <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationDistance}</Text>
+    </View>
+    <View style={{flexDirection:'row',
+    justifyContent:'space-between',alignItems:'center',
+    marginHorizontal:wp(0)}}>
              <Image 
-                  source={require("../../../../assets/LocationDetail/Icon-directions.png") }
-                  style={LightModestyles.textlasticon}
-                  resizeMode='contain'
-                />
-       <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationDistance}km </Text>
-   </View>
-   <View style={{flexDirection:'row',
-   justifyContent:'space-between',alignItems:'center',
-   marginHorizontal:wp(0)}}>
-            <Image 
-                  source={require("../../../../assets/LocationDetail/walking.png") }
-                  style={LightModestyles.textlasticon}
-                  resizeMode='contain'
-                />
-       <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationTime} Min </Text>
-   </View>
-            </View>
-
-       </View>
-       :  <Text style={theme === false?LightModestyles.mainheadingtext: DarkModestyles.mainheadingtext}>
-      {LocationTitle}</Text>}  
-          <View style={{marginVertical:10}}>
-          <Text style={theme === false?LightModestyles.subtext: DarkModestyles.subtext}>{LocationDesc}</Text>
-          </View>
-          </View>
-  <View style={{flexDirection:'row',
-   justifyContent:'space-between',
-   marginTop:hp(3),alignItems:'center',
-   marginHorizontal:wp(5)}}>
-     
-       {     predata.navplace === 'Car Parkings'?
-       
-        <View style={LightModestyles.buttonview}>
-    {findings === ''?
-             <CustomButton
-         title={'Add Findings'}
-         widthset={'35%'}
-         iscolor={'walking        '}
-       //   loading={loading}
-       //   disabled={disable}
-         onPress={() => refRBSheet.current.open()}
-       />
-       :<View style={{
-       marginTop:hp(0.1),
-       marginHorizontal:wp(15)}}>
-        </View>
-}
-</View>
-      //    <CustomButton
-      //    title={'Add Findings'}
-      //    widthset={'35%'}
-      //    iscolor={'walking        '}
-      //  //   loading={loading}
-      //  //   disabled={disable}
-      //    onPress={() => refRBSheet.current.open()}
-      //  />
-       :
-        <View>
-       <View style={{flexDirection:'row',alignItems:'center',
-   justifyContent:'space-between',
-   marginHorizontal:wp(0)}}>
-             <Image 
-                  source={require("../../../../assets/LocationDetail/Icon-directions.png") }
-                  style={LightModestyles.textlasticon}
-                  resizeMode='contain'
-                />
-       <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationDistance} Km </Text>
-   </View>
-   <View style={{flexDirection:'row',
-   justifyContent:'space-between',alignItems:'center',
-   marginHorizontal:wp(0)}}>
-            <Image 
-                  source={require("../../../../assets/LocationDetail/walking.png") }
-                  style={LightModestyles.textlasticon}
-                  resizeMode='contain'
-                />
-       <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationTime}Min </Text>
-   </View>
-       </View>}
-       <View style={{flexDirection:'row',marginHorizontal:wp(3)}}>
-       </View>
-       <TouchableOpacity onPress={()=> 
-      //  {reviews()
-      //   //  navigation.navigate('Reviews')
-      // }
-        navigation.navigate('Reviews',{LocationID:predata.locid})
-        }>
-       <View style={LightModestyles.renderviews}>
-
-<Image 
-           source={require("../../../../assets/LocationDetail/review.png") }
-           style={LightModestyles.lasticon}
-           resizeMode='contain'
-         />
-</View>
-       </TouchableOpacity>
-       <TouchableOpacity onPress={()=> AddSavedLocation()}>
-       <View style={LightModestyles.renderviews}>
-       <Image 
-                      source={require("../../../../assets/LocationDetail/location.png") }
-                      style={LightModestyles.lasticon}
-                  resizeMode='contain'
-                />
-       </View>
-       </TouchableOpacity>
-       <TouchableOpacity onPress={()=>navigation.navigate('MapRoute')}>
-       <View style={LightModestyles.renderviews}>
-       <Image 
-                    source={require("../../../../assets/LocationDetail/directions.png") }
-                    style={LightModestyles.lasticon}
-                  resizeMode='contain'
-                />
-       </View>
-       </TouchableOpacity>
-   </View>
-   {findings !=''  && predata.navplace === 'Car Parkings'?
-          <View style={{flexDirection:'row',marginHorizontal:wp(8),justifyContent:'space-between',marginTop:hp(3)}}>
-          <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{findings}</Text>
-          <TouchableOpacity      onPress={() => 
-             refRBSheetEditFindings.current.open()}>
-          <Text style={theme === false?[LightModestyles.belowtext,{fontWeight:'bold'}]:
-          [DarkModestyles.belowtext,{fontWeight:'bold'}]}>Edit</Text>
-          </TouchableOpacity>
-    
-    </View>:null}
-   {     predata.navplace === 'Car Parkings'?
-     <View style={[LightModestyles.buttonview,{justifyContent:'center', marginHorizontal:wp(8),
-     alignItems:'center'}]}>
+                   source={require("../../../../assets/LocationDetail/walking.png") }
+                   style={LightModestyles.textlasticon}
+                   resizeMode='contain'
+                 />
+        <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationTime}</Text>
+    </View>
+             </View>
  
-     {findparkCar === true ?
-     <OutlineButton
-     title={'Find My Car'}
+        </View>
+        :  <Text style={theme === false?LightModestyles.mainheadingtext: DarkModestyles.mainheadingtext}>
+       {LocationTitle}</Text>}  
+           <View style={{marginVertical:10}}>
+           <Text style={theme === false?LightModestyles.subtext: DarkModestyles.subtext}>{LocationDesc}</Text>
+           </View>
+           </View>
+   <View style={{flexDirection:'row',
+    justifyContent:'space-between',
+    marginTop:hp(3),alignItems:'center',
+    marginHorizontal:wp(5)}}>
+      
+        {     predata.navplace === 'Car Parkings'?
+        
+         <View style={LightModestyles.buttonview}>
+     {findings === ''?
+              <CustomButton
+          title={'Add Findings'}
+          widthset={'35%'}
+          iscolor={'walking        '}
+        //   loading={loading}
+        //   disabled={disable}
+          onPress={() => refRBSheet.current.open()}
+        />
+        :<View style={{
+        marginTop:hp(0.1),
+        marginHorizontal:wp(15)}}>
+         </View>
+ }
+ </View>
+       //    <CustomButton
+       //    title={'Add Findings'}
+       //    widthset={'35%'}
+       //    iscolor={'walking        '}
+       //  //   loading={loading}
+       //  //   disabled={disable}
+       //    onPress={() => refRBSheet.current.open()}
+       //  />
+        :
+         <View>
+        <View style={{flexDirection:'row',alignItems:'center',
+    justifyContent:'space-between',
+    marginHorizontal:wp(0)}}>
+              <Image 
+                   source={require("../../../../assets/LocationDetail/Icon-directions.png") }
+                   style={LightModestyles.textlasticon}
+                   resizeMode='contain'
+                 />
+        <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationDistance}</Text>
+    </View>
+    <View style={{flexDirection:'row',
+    justifyContent:'space-between',alignItems:'center',
+    marginHorizontal:wp(0)}}>
+             <Image 
+                   source={require("../../../../assets/LocationDetail/walking.png") }
+                   style={LightModestyles.textlasticon}
+                   resizeMode='contain'
+                 />
+        <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationTime}</Text>
+    </View>
+        </View>}
+        <View style={{flexDirection:'row',marginHorizontal:wp(10)}}>
+        </View>
+        <TouchableOpacity onPress={()=> 
+       //  {reviews()
+       //   //  navigation.navigate('Reviews')
+       // }
+         navigation.navigate('Reviews',{LocationID:predata.locid})
+         }>
+        <View style={LightModestyles.renderviews}>
+ 
+ <Image 
+            source={require("../../../../assets/LocationDetail/review.png") }
+            style={LightModestyles.lasticon}
+            resizeMode='contain'
+          />
+ </View>
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress={()=> togglesavedlocation(findingsid)}>
+        <View style={[LightModestyles.renderviews,{backgroundcolor:saved === true ?'red':'yellow'}]}>
+        <Image 
+                       source={require("../../../../assets/LocationDetail/location.png") }
+                       style={[LightModestyles.lasticon,{color:saved === true ?'red':'yellow'}]}
+                   resizeMode='contain'
+                 />
+        </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('MapRoute')}>
+        <View style={LightModestyles.renderviews}>
+        <Image 
+                     source={require("../../../../assets/LocationDetail/directions.png") }
+                     style={LightModestyles.lasticon}
+                   resizeMode='contain'
+                 />
+        </View>
+        </TouchableOpacity>
+    </View>
+    {findings !=''  && predata.navplace === 'Car Parkings'?
+           <View style={{flexDirection:'row',marginHorizontal:wp(8),justifyContent:'space-between',marginTop:hp(3)}}>
+           <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{findings}</Text>
+           <TouchableOpacity      onPress={() => 
+              refRBSheetEditFindings.current.open()}>
+           <Text style={theme === false?[LightModestyles.belowtext,{fontWeight:'bold'}]:
+           [DarkModestyles.belowtext,{fontWeight:'bold'}]}>Edit</Text>
+           </TouchableOpacity>
+     
+     </View>:null}
+    {     predata.navplace === 'Car Parkings'?
+      <View style={[LightModestyles.buttonview,{justifyContent:'center', marginHorizontal:wp(8),
+      alignItems:'center'}]}>
+  
+      {findparkCar === true ?
+      <OutlineButton
+      title={'Find My Car'}
+      widthset={'70%'}
+      //iscolor={'walking'}
+    //   loading={loading}
+    //   disabled={disable}
+      onPress={() =>   
+       navigation.navigate('ParkCarRoute',{Cordinates:findparkCarCoord})
+       //   refFindMyCarRBSheet.current.open()
+     }
+    />
+     :    <CustomButton
+     title={'Park Car'}
      widthset={'70%'}
-     //iscolor={'walking'}
+     iscolor={'walking'}
    //   loading={loading}
    //   disabled={disable}
-     onPress={() =>   
-      navigation.navigate('ParkCarRoute',{Cordinates:findparkCarCoord})
-      //   refFindMyCarRBSheet.current.open()
-    }
+   onPress={() => refFindMyCarRBSheet.current.open()}
    />
-    :    <CustomButton
-    title={'Park Car'}
-    widthset={'70%'}
-    iscolor={'walking'}
-  //   loading={loading}
-  //   disabled={disable}
-  onPress={() => refFindMyCarRBSheet.current.open()}
-  />
-    }
-       {/*  */}
-     </View>
-   :
+     }
+        {/*  */}
+      </View>
+    :
+ 
+    <View style={LightModestyles.buttonview}>
+     {findings === ''?
+          <CustomButton
+          title={'Add Your Findings'}
+          widthset={'80%'}
+          iscolor={'walking'}
+        //   loading={loading}
+        //   disabled={disable}
+          onPress={() =>      refRBSheet.current.open()}
+        />
+        :
+        <View style={{
+          //flexDirection:'row',
+          marginHorizontal:wp(8),
+          //justifyContent:'space-between'
+        }}>
+                <TouchableOpacity    
+                style={{alignSelf:'flex-end',marginBottom:hp(1)}}
+                onPress={() => 
+          refRBSheetEditFindings.current.open()}>
 
-   <View style={LightModestyles.buttonview}>
-    {findings === ''?
-         <CustomButton
-         title={'Add Your Findings'}
-         widthset={'80%'}
-         iscolor={'walking'}
-       //   loading={loading}
-       //   disabled={disable}
-         onPress={() =>      refRBSheet.current.open()}
-       />
-       :
-       <View style={{flexDirection:'row',marginHorizontal:wp(8),justifyContent:'space-between'}}>
-      <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{findings}</Text>
-      <TouchableOpacity      onPress={() => 
-         refRBSheetEditFindings.current.open()}>
-      <Text style={theme === false?[LightModestyles.belowtext,{fontWeight:'bold'}]:
-      [DarkModestyles.belowtext,{fontWeight:'bold'}]}>Edit</Text>
-      </TouchableOpacity>
+       <Text style={theme === false?[LightModestyles.belowtext,{fontWeight:'bold'}]:
+       [DarkModestyles.belowtext,{fontWeight:'bold'}]}>Edit</Text>
+       </TouchableOpacity>
+ 
+       <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{findings}</Text>
+ 
+ </View>
+ 
+     }
+            </View>
+ }
+      </View>}
 
-</View>
-
-    }
-           </View>
-}
             </ScrollView>
             <FindingsBottomSheet
               refRBSheet={refRBSheet}

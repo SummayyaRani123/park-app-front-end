@@ -43,12 +43,12 @@ const [fcmtoken,setFCMToken] = useState();
       /////////////theme function//////////////
     const themehere =async() => {
         var themehere= await AsyncStorage.getItem('Apptheme');
-       // console.log('heree map:',themehere)
+        console.log('heree map:',themehere)
 
         if(themehere === 'DARK')
         {
             dispatch(setTheme(false));
-           // console.log('heree map:',theme)
+            console.log('heree map:',theme)
         }
     else{
         dispatch(setTheme(true));

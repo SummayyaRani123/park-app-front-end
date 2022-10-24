@@ -24,16 +24,16 @@ backgroundColor:'white',
     margin:wp('2%'),
     borderRadius:10,
     flexDirection:'row',
-   width: wp('95%'),
+    width: wp('95%'),
     alignSelf:'center',
-    justifyContent:'space-between',
-    alignItems:"center",
+    //justifyContent:'space-between',
+    //alignItems:"center",
     marginHorizontal:wp('0%'),
 
   },
   borderview:
   {
-    marginTop:hp(2),
+    marginTop:hp(0.2),
     marginBottom:hp(2),
     alignSelf:'center',
     width:wp(85),
@@ -52,6 +52,7 @@ backgroundColor:'white',
     color:'black',
     fontWeight: '400',
     fontSize: hp('1.5%'),
+    width:wp(74)
   },
   cardtext:
   {

@@ -35,6 +35,7 @@ const MainSplash = ({navigation}) => {
                     console.log('usertype',{db})
                     if(db)
                     {
+                        themehere()
                             navigation.navigate('Drawerroute');
                     }
                     else{
@@ -51,16 +52,16 @@ const MainSplash = ({navigation}) => {
       /////////////theme function//////////////
     const themehere =async() => {
         var themehere= await AsyncStorage.getItem('Apptheme');
-       // console.log('heree map:',themehere)
+       console.log('heree map:',themehere)
 
         if(themehere === 'DARK')
         {
             dispatch(setTheme(false));
-           // console.log('heree map:',theme)
+           console.log('heree map:',theme)
         }
     else{
         dispatch(setTheme(true));
-        //console.log('heree map:',theme)
+        console.log('heree map:',theme)
     }
       
     }

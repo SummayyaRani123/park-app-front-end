@@ -2,6 +2,9 @@ import {StyleSheet,Dimensions} from 'react-native';
 import Colors from '../../utils/Colors';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} 
 from 'react-native-responsive-screen';
+
+import { fontFamily } from '../../constant/fonts';
+
 const styles = StyleSheet.create({
   container:
   {
@@ -101,8 +104,8 @@ alignItems:'center',
 },
 Seetext:
 {
- color:'#5C5C5C',
- fontSize:hp(1.5),
+ color:'rgba(53, 53, 53, 1.5)',
+ fontSize:hp(1.7),
  //fontFamily: fontFamily.Poppins_SemiBold,
  marginLeft:wp(4.5),
  marginRight:wp(4.5),
@@ -112,8 +115,10 @@ Seetext:
 
 },
 sidetext:{
-  fontSize:hp(1.8),
-  color:'#5A5A5A',
+  fontSize:hp(2),
+  fontWeight:'bold',
+  color:Colors.Appthemecolorprimary,
+  fontFamily:fontFamily.Gibson_Bold,
   //fontFamily:fontFamily.Poppins_Medium
 },
 flatlistmainview:
@@ -121,6 +126,38 @@ flatlistmainview:
   marginBottom:hp(0),
   marginHorizontal:wp(1),
   alignItems:'center' 
-}
+},
+flatlisttitletext:
+{
+   color: 'white',
+   width:wp(20),
+                    fontWeight:'bold',
+                    marginTop:hp(1),
+                    position:'absolute',
+                    bottom:hp(2.5),
+                    textShadowOffset: {width: 2, height: 2},
+                    textShadowRadius: 10,
+                    textShadowColor: Colors.Appthemecolorprimary,
+                    },
+                    flatlistsubtitletext:
+{
+   color: 'white',
+   width:wp(20),
+                    fontWeight:'400',
+                    marginTop:hp(1),
+                    position:'absolute',
+                    bottom:hp(2.5),
+                    textShadowOffset: {width: 2, height: 2},
+                    textShadowRadius: 10,
+                    textShadowColor: Colors.Appthemecolorprimary,
+                    },
+                    flatlistimgesview:
+                    {
+                      height:hp(14),width:wp(26),borderRadius:wp(3)},
+                      flatlistimage:
+{
+                        borderRadius: 15, borderWidth: 1,
+                        borderColor: 'black', padding: 10
+                      }
 });
 export default styles;

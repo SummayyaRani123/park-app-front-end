@@ -12,6 +12,9 @@ import {
  import CustomHeader from '../../../../components/Header/CustomHeader';
 import ReviewsBottomSheet from '../../../../components/Reviews/ReviewsBottomSheet';
 
+////////////////////app icons////////////////
+import Icon from 'react-native-vector-icons/Ionicons';
+
 ///////////////app naviagtion////////////////
 import { useIsFocused } from '@react-navigation/native';
 
@@ -48,7 +51,7 @@ const[predata]=useState(route.params)
     const refRBSheet = useRef();
 
     ///////////api get reivews state///////////
-    const[data,setdata]=useState()
+    const[data,setdata]=useState([])
     //get GetSignalsCategories api calling
     const GetReviews = async () => {
       var user= await AsyncStorage.getItem('Userid')
@@ -84,58 +87,68 @@ setdata(response.data.result.reverse())
            alignItems:"center",marginHorizontal:wp(8)
             }}>
 
-
                                    <CustomHeader
 headerlabel={'Reviews'}
-iconPress={() => {navigation.navigate('MapSearch')}}
+iconPress={() => {navigation.goBack()}}
 icon={"chevron-back" }
 />
           </View>
+          {data.length === 0?
+                    <View style={{alignItems:'center',justifyContent:'center',flex:1}}>
+                                <Icon name={"chatbubble-ellipses-outline"} size={50} 
+          color= {Colors.Appthemecolorprimary}
+           onPress={() => {navigation.goBack()}} />
+                    <Text style={{color:theme === false? 'black':'white',fontWeight:'bold'}}>
+                      Please Add Your Reviews Here 
+                    </Text>
+                  </View>
+        :
+        <View style={{
+          marginTop:hp(0),
+          marginBottom:hp(6)
+                              // /backgroundColor:"yellow"
+                              }}>
+                          <FlatList
+        data={data}
+        renderItem={({ item, index, separators }) => (                   
+          <View>
+          <View style={LightModestyles.card}>
+          <View style={{flexDirection:'row',
+          //justifyContent:'space-around',
+          // borderBottomWidth:1,borderColor:'grey',width:wp(80),alignSelf:"center",
+          //alignItems:'center',
+          paddingHorizontal:wp(3)}}>
+            {item.review.substring(0,3)=== 'no '?
+              <Avatar.Text size={45} label={item.name.substring(0,2)}
+              style={{backgroundColor:Colors.Appthemecolorprimary}}
+               />
+            : 
+          <Avatar.Image 
+                                 source={{uri:item.review.substring(0,3)=== 'no '?null: item.picture.userPicUrl}}
+                                  size={45}
+                                  style={{backgroundColor:Colors.Appthemecolorprimary}}
+                              />
+            }
+                              <View style={{justifyContent:"center",alignContent:'center',
+                          marginLeft:wp(4)}}>
+          <Text style={theme === false? LightModestyles.useritemtext:DarkModestyles.useritemtext}>{item.name}</Text>
+          <Text style={theme === false?LightModestyles.itemtext:DarkModestyles.itemtext}>{item.review.substring(3)}</Text>
+          </View>
+          </View>
+       
+      </View>
+     <View style={theme === false? LightModestyles.borderview:DarkModestyles.borderview}>
+     </View>
+     </View>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      />
+      </View>
+        }
 
-        
-                        <View style={{
-        marginTop:hp(5),
-        marginBottom:hp(6)
-                            // /backgroundColor:"yellow"
-                            }}>
-                        <FlatList
-      data={data}
-      renderItem={({ item, index, separators }) => (                   
-        <View>
-        <View style={LightModestyles.card}>
-        <View style={{flexDirection:'row',justifyContent:'space-around',
-        // borderBottomWidth:1,borderColor:'grey',width:wp(80),alignSelf:"center",
-        alignItems:'center',
-        paddingHorizontal:wp(5)}}>
-          {item.review.substring(0,3)=== 'no '?
-            <Avatar.Text size={60} label={item.name.substring(0,2)}
-            style={{backgroundColor:Colors.Appthemecolorprimary}}
-             />
-          : 
-        <Avatar.Image 
-                               source={{uri:item.review.substring(0,3)=== 'no '?null: item.picture.userPicUrl}}
-                                size={60}
-                                style={{backgroundColor:Colors.Appthemecolorprimary}}
-                            />
-          }
-                            <View style={{justifyContent:"center",alignContent:'center',
-                        marginLeft:wp(10)}}>
-        <Text style={theme === false? LightModestyles.useritemtext:DarkModestyles.useritemtext}>{item.name}</Text>
-        <Text style={theme === false?LightModestyles.itemtext:DarkModestyles.itemtext}>{item.review.substring(3)}</Text>
-        <Divider/>
-        </View>
-        </View>
-     
-    </View>
-   <View style={theme === false? LightModestyles.borderview:DarkModestyles.borderview}>
-   </View>
-   </View>
-      )}
-      keyExtractor={(item, index) => index.toString()}
-      showsVerticalScrollIndicator={false}
-      showsHorizontalScrollIndicator={false}
-    />
-    </View>
+
     <View style={LightModestyles.button}>
             <CustomButton
               title={'Add Review'}

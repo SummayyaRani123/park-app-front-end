@@ -18,14 +18,16 @@ const DarkModestyles = StyleSheet.create({
     subtext:
     {
       color:'white',
-      fontSize:hp(1.8),
-      textAlign:'justify'
+      textAlign:'justify',
+      fontSize:hp(1.6),
+      //fontWeight:'500'
     },
     belowtext:
     { 
       color:'white',
-      fontSize:hp(1.8),
-      fontWeight:'400'
+      fontSize:hp(1.6),
+      //fontWeight:'500',
+      textAlign:'justify',
     },
   });
 export default DarkModestyles;

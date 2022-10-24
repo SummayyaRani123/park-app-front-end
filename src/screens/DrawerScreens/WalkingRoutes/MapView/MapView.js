@@ -295,6 +295,7 @@ console.log("here in func:",props)
           }}
           customMapStyle={theme === false? mapStandardStyle :  mapDarkStyle}
         >
+
                   {route.params === 'WalkingRoute'  && WalkingRoutes != ''?
                   WalkingRoutes.map((marker, index) => {
           // const scaleStyle = {
@@ -520,10 +521,10 @@ icon={'menu'}
                 />
             <View style={LightModestyles.textContent}>
               <Text numberOfLines={1} style={[LightModestyles.cardtitle,,
-                {color:theme === false ? 'black':'white'}]}>{marker.title}</Text>
+                {color:theme === false ? 'rgba(69, 79, 99, 1)':'white'}]}>{marker.title}</Text>
               <View style={{flexDirection:"row"}}>
               <Text numberOfLines={5} style={[LightModestyles.cardDescription,
-                {color:theme === false ? 'black':'white'}]}>{marker.description}</Text>
+                {color:theme === false ? 'rgba(120, 132, 158, 1)':'white'}]}>{marker.description}</Text>
               <View style={{marginTop:hp(5)}}>
               <Image 
                   source={require('../../../../assets/Home/save.png')}
@@ -550,10 +551,10 @@ icon={'menu'}
                 />
             <View style={LightModestyles.textContent}>
               <Text numberOfLines={1} style={[LightModestyles.cardtitle,
-                {color:theme === false ? 'black':'white'}]}>{marker.title}</Text>
+                {color:theme === false ? 'rgba(69, 79, 99, 1)':'white'}]}>{marker.title}</Text>
               <View style={{flexDirection:"row"}}>
               <Text numberOfLines={5} style={[LightModestyles.cardDescription,
-                {color:theme === false ? 'black':'white'}]}>{marker.description}</Text>
+                {color:theme === false ? 'rgba(120, 132, 158, 1)':'white'}]}>{marker.description}</Text>
               <View style={{marginTop:hp(5)}}>
               <Image 
                   source={require('../../../../assets/Home/save.png')}
@@ -580,10 +581,10 @@ icon={'menu'}
                 />
             <View style={LightModestyles.textContent}>
               <Text numberOfLines={1} style={[LightModestyles.cardtitle,
-                {color:theme === false ? 'black':'white'}]}>{marker.title}</Text>
+                {color:theme === false ? 'rgba(69, 79, 99, 1)':'white'}]}>{marker.title}</Text>
               <View style={{flexDirection:"row"}}>
               <Text numberOfLines={5} style={[LightModestyles.cardDescription,
-                {color:theme === false ? 'black':'white'}]}>{marker.description}</Text>
+                {color:theme === false ? 'rgba(120, 132, 158, 1)':'white'}]}>{marker.description}</Text>
               <View style={{marginTop:hp(5)}}>
               <Image 
                   source={require('../../../../assets/Home/save.png')}
@@ -611,10 +612,10 @@ icon={'menu'}
                 />
             <View style={LightModestyles.textContent}>
               <Text numberOfLines={1} style={[LightModestyles.cardtitle,
-                {color:theme === false ? 'black':'white'}]}>{marker.title}</Text>
+                {color:theme === false ? 'rgba(69, 79, 99, 1)':'white'}]}>{marker.title}</Text>
               <View style={{flexDirection:"row"}}>
               <Text numberOfLines={5} style={[LightModestyles.cardDescription,
-                {color:theme === false ? 'black':'white'}]}>{marker.description}</Text>
+                {color:theme === false ? 'rgba(120, 132, 158, 1)':'white'}]}>{marker.description}</Text>
               <View style={{marginTop:hp(5)}}>
               <Image 
                   source={require('../../../../assets/Home/save.png')}

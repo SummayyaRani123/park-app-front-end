@@ -394,6 +394,8 @@ fillColor={'rgba(26,81,59,0.2)'}
                     title={'title'}
                     description={'here'}
                     image={require('../../../assets/Home/CurrentPin.png')}
+                    width={wp(12)}
+                    height={hp(12)}
                     onDragStart={(e)=>
                       console.log('Darg Start:',e.nativeEvent.coordinate)}
                       onDragEnd={(e)=>
@@ -407,37 +409,13 @@ fillColor={'rgba(26,81,59,0.2)'}
                   null
                 }
         </MapView>
-      {/* <View style={[LightModestyles.searchBox,{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
-    borderColor:theme === false ? 'white':'black'
-    }]}>
-      <Ionicons name={'menu'} size={25} 
-          color= {theme ===false? 'black':'white'}
-          onPress={() => navigation.toggleDrawer()}/>
-        <TextInput 
-          placeholder="Search here"
-          //editable={false}
-          placeholderTextColor={theme === false ? 'black':'white'}
-          autoCapitalize="none"
-          style={{flex:1,padding:0,backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
-        color:theme === false ? 'black':'white',
-        marginLeft:wp(5)
-      }}
-        />
-      </View> */}
-
       {ParkingDetail === true?   
        <TouchableOpacity onPress={()=>  UnParkCar(ParkingID)}
         style={[LightModestyles.carparkingview,
-          {backgroundColor:allloc === true? Colors.Appthemecolorprimary:'rgba(52, 52, 52, 1)'
+          {backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
+          //allloc === true? Colors.Appthemecolorprimary:'rgba(52, 52, 52, 1)'
           //theme === false ? 'white':'rgba(52, 52, 52, 1)',
-}]}
-       >
-        <View 
-//         style={[LightModestyles.carparkingview,
-//           {backgroundColor:allloc === true? Colors.Appthemecolorprimary:'rgba(52, 52, 52, 1)'
-//           //theme === false ? 'white':'rgba(52, 52, 52, 1)',
-// }]}
-         >
+}]}>
             <View style={[LightModestyles.carContent]}>
             <IconButton
                 icon={require('../../../assets/Home/CarParkings.png')}
@@ -449,101 +427,127 @@ fillColor={'rgba(26,81,59,0.2)'}
                   alllocationtogglebutton()
                 }
               />
-            {/* <Image 
-     source={require('../../../assets/Home/currentlocation.png')}
-              style={LightModestyles.currentlocationImage}
-              resizeMode='contain'
-            /> */}
-
             </View>
-          </View>
         </TouchableOpacity>:
         null}
       <View style={{bottom:wp(25),right:0,position: "absolute",paddingBottom:hp(0)}}>
 
+  {theme === false ?    
+
+              <TouchableOpacity onPress={()=>   alllocationtogglebutton()}>
+              <View 
+              style={[LightModestyles.currentlocationview,
+                {backgroundColor:allloc === true? Colors.Appthemecolorprimary:'white'
+                //theme === false ? 'white':'rgba(52, 52, 52, 1)',
+      }]}
+               >
+                  <View style={[LightModestyles.textContent]}>
+                  <IconButton
+                      icon={require('../../../assets/Home/eye.png')}
+                      //icon="image"
+                      color={allloc === true? 'white':Colors.Appthemecolorprimary}
+                      size={25}
+                      onPress={() =>
+                        alllocationtogglebutton()
+                      }
+                    />
+      
+                  </View>
+                </View>
+              </TouchableOpacity>
+        :
   
-      <TouchableOpacity onPress={()=>   alllocationtogglebutton()}>
-        <View 
-        style={[LightModestyles.currentlocationview,{backgroundColor:allloc === true? Colors.Appthemecolorprimary:'rgba(52, 52, 52, 1)'
-          //theme === false ? 'white':'rgba(52, 52, 52, 1)',
-}]}
-         >
-            <View style={[LightModestyles.textContent]}>
-            <IconButton
-                icon={require('../../../assets/Home/eye.png')}
-                //icon="image"
-                color={allloc === true? 'white':Colors.Appthemecolorprimary}
-                size={25}
-                onPress={() =>
-                  alllocationtogglebutton()
-                }
-              />
-            {/* <Image 
-     source={require('../../../assets/Home/currentlocation.png')}
-              style={LightModestyles.currentlocationImage}
-              resizeMode='contain'
-            /> */}
-
+           <TouchableOpacity onPress={()=>   alllocationtogglebutton()}>
+           <View 
+           style={[LightModestyles.currentlocationview,
+             {backgroundColor:allloc === true? Colors.Appthemecolorprimary:'rgba(52, 52, 52, 1)'
+             //theme === false ? 'white':'rgba(52, 52, 52, 1)',
+   }]}
+            >
+               <View style={[LightModestyles.textContent]}>
+               <IconButton
+                   icon={require('../../../assets/Home/eye.png')}
+                   //icon="image"
+                   color={allloc === true? 'white':Colors.Appthemecolorprimary}
+                   size={25}
+                   onPress={() =>
+                     alllocationtogglebutton()
+                   }
+                 />
+   
+               </View>
+             </View>
+           </TouchableOpacity>
+        }
+    {theme === false ?   
+           <TouchableOpacity onPress={()=>
+            {
+              userlocationtogglebutton()
+            }}>
+          <View 
+          style={[LightModestyles.currentlocationview,{
+            backgroundColor:usercurrloc === true? Colors.Appthemecolorprimary:'white'
+            //theme === false ? 'white':'rgba(52, 52, 52, 1)'
+          }]}
+           >
+              <View style={LightModestyles.textContent}>
+              <IconButton
+                  icon={require('../../../assets/Home/currentlocation.png')}
+                  //icon="image"
+                  color={usercurrloc === true? 'white':Colors.Appthemecolorprimary}
+                  size={25}
+                  onPress={() =>
+                   { 
+                    userlocationtogglebutton()
+                  }
+                  }
+                />
+              </View>
+              
             </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>
-          {
-            userlocationtogglebutton()
-          }}>
-        <View 
-        style={[LightModestyles.currentlocationview,{
-          backgroundColor:usercurrloc === true? Colors.Appthemecolorprimary:'rgba(52, 52, 52, 1)'
-          //theme === false ? 'white':'rgba(52, 52, 52, 1)'
-        }]}
-         >
-            <View style={LightModestyles.textContent}>
-            <IconButton
-                icon={require('../../../assets/Home/currentlocation.png')}
-                //icon="image"
-                color={usercurrloc === true? 'white':Colors.Appthemecolorprimary}
-                size={25}
-                onPress={() =>
-                 { 
-                  userlocationtogglebutton()
-                }
-                }
-              />
-            {/* {theme === false ?
-                        <Image 
-                        source={require('../../../assets/LocationDetail/blacklocation.png')}
-                                 style={LightModestyles.currentlocationImage}
-                                 resizeMode='contain'
-                               />
-                               :
-                               <Image 
-                               source={require('../../../assets/LocationDetail/location.png')}
-                                        style={LightModestyles.currentlocationImage}
-                                        resizeMode='contain'
-                                      />
-          } */}
-
-
+          </TouchableOpacity>
+          :
+          
+          <TouchableOpacity onPress={()=>
+            {
+              userlocationtogglebutton()
+            }}>
+          <View 
+          style={[LightModestyles.currentlocationview,{
+            backgroundColor:usercurrloc === true? Colors.Appthemecolorprimary:'rgba(52, 52, 52, 1)'
+            //theme === false ? 'white':'rgba(52, 52, 52, 1)'
+          }]}
+           >
+              <View style={LightModestyles.textContent}>
+              <IconButton
+                  icon={require('../../../assets/Home/currentlocation.png')}
+                  //icon="image"
+                  color={usercurrloc === true? 'white':Colors.Appthemecolorprimary}
+                  size={25}
+                  onPress={() =>
+                   { 
+                    userlocationtogglebutton()
+                  }
+                  }
+                />
+              </View>
+              
             </View>
-            
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+          }
       </View>
-
       <Animated.View
 style={LightModestyles.lastView}
       > 
-
-  
       <View style={{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
       height:hp(12),borderTopWidth:8,borderTopColor:Colors.Appthemecolorprimary,
-    width:wp(100),borderTopLeftRadius:wp(2),borderTopRightRadius:wp(2)}}>
+    width:wp(100),borderTopLeftRadius:wp(2),borderTopRightRadius:wp(2),justifyContent:'center'}}>
       <TouchableOpacity onPress={()=> refRBSheet.current.open()}>
       <View style={{flexDirection:'row',marginHorizontal:wp(5),alignItems:'center'}}>
-      <Ionicons name={'chevron-up'} size={25} 
-          color= {theme ===false? 'black':'white'}
+      <Ionicons name={'chevron-up'} size={23} 
+          color= {theme ===false? 'grey':'white'}
           onPress={() => refRBSheet.current.open()}/>
-          <View style={{marginTop:hp(3)}}>
+          <View style={{marginLeft:wp(3)}}>
           <Text numberOfLines={2} 
               style={[LightModestyles.cardDescription,
                 {color:Colors.Appthemecolorprimary
@@ -551,75 +555,13 @@ style={LightModestyles.lastView}
                 }]}
                 >What 's Nearby</Text>
                       <Text numberOfLines={5} 
-              style={[LightModestyles.cardDescription,
+              style={[LightModestyles.cardsubDescription,
                 {color:theme === false ? 'black':'white'}]}
                 >Lorem</Text>
           </View>
           </View>
       </TouchableOpacity>
-      {/* <View style={{flexDirection:'row'}}>
-        <TouchableOpacity onPress={()=> navigation.navigate('WalkingRouteSearch','WalkingRoute')}>
-        <View 
-        style={[LightModestyles.card,{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)'}]}
-         >
-            <View style={LightModestyles.textContent}>
-            <Image 
-     source={require('../../../assets/mainSeacrh/WalkingRoutes.png')}
-              style={LightModestyles.cardImage}
-              resizeMode='contain'
-            />
-              <Text numberOfLines={5} 
-              style={[LightModestyles.cardDescription,
-                {color:theme === false ? 'black':'white'}]}
-                >Walking Routes</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=> navigation.navigate('WalkingRouteSearch','DogWalks')}>
-          <View style={[LightModestyles.card,{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)'}]}>
-            <View style={LightModestyles.textContent}>
-            <Image 
-     source={require('../../../assets/mainSeacrh/DogWalks.png')}
-     style={LightModestyles.cardImage}
-     resizeMode='contain'
-            />
-              <Text numberOfLines={5}      style={[LightModestyles.cardDescription,
-                {color:theme === false ? 'black':'white'}]}>Dog Walks</Text>
-            </View>
-          </View>
-          </TouchableOpacity>
       </View>
-      <View style={{flexDirection:'row',marginTop:hp(1.5)}}>
-      <TouchableOpacity onPress={()=> navigation.navigate('WalkingRouteSearch','CarParking')}>
-      <View  style={[LightModestyles.card,{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)'}]}>
-            <View style={LightModestyles.textContent}>
-            <Image 
-     source={require('../../../assets/mainSeacrh/CarParkings.png')}
-     style={LightModestyles.cardImage}
-     resizeMode='contain'
-            />
-              <Text numberOfLines={5}      style={[LightModestyles.cardDescription,
-                {color:theme === false ? 'black':'white'}]}>Car Parking</Text>
-            </View>
-          </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=> navigation.navigate('WalkingRouteSearch','Toilets')}>
-          <View  style={[LightModestyles.card,{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)'}]} >
-            <View style={LightModestyles.textContent}>
-            <Image 
-     source={require('../../../assets/mainSeacrh/Toilets.png')}
-     style={LightModestyles.cardImage}
-     resizeMode='contain'
-            />
-              <Text numberOfLines={5}      style={[LightModestyles.cardDescription,
-                {color:theme === false ? 'black':'white'}]}>Toilet Locations</Text>
-            </View>
-          </View>
-          </TouchableOpacity>
-      </View> */}
-      
-      </View>
-
       </Animated.View>
       <LocationsBottomSheet
               refRBSheet={refRBSheet}

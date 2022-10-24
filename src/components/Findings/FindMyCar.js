@@ -178,6 +178,8 @@ const showTimepicker = () => {
       activeOutlineColor={Colors.Appthemecolorprimary}
       placeholder="Car Plate Number "
       placeholderTextColor={ theme === false?"black":'white'}
+      textColor={theme === false?"black":'white'}
+      theme={{ colors: 'red'}}
       // value={text}
       // onChangeText={text => setText(text)}
     />
@@ -193,6 +195,8 @@ const showTimepicker = () => {
       activeOutlineColor={Colors.Appthemecolorprimary}
       placeholder="Time For Parking"
       placeholderTextColor={ theme === false?"black":'white'}
+      textColor={theme === false?"black":'white'}
+      theme={{ colors: 'red'}}
       // value={text}
       // onChangeText={text => setText(text)}
     />

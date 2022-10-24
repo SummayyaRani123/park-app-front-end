@@ -12,19 +12,21 @@ const LightModestyles = StyleSheet.create({
     },
     mainheadingtext:
     { 
-      color:'black',
-      fontSize:hp(2)
+      color:'rgba(69, 79, 99, 1)',
+      fontSize:hp(2.5),
+      fontWeight:'400'
     },
     subtext:
     {
-      color:'black',
-      fontSize:hp(1.8)
+      color:'rgba(120, 132, 158, 1)',
+      fontSize:hp(1.6),
+      fontWeight:'500'
     },
 belowtext:
 { 
-  color:'black',
-  fontSize:hp(1.8),
-      fontWeight:'400'
+  color:'rgba(69, 79, 99, 1)',
+  fontSize:hp(1.6),
+      fontWeight:'500'
 },
 renderviews:
 {

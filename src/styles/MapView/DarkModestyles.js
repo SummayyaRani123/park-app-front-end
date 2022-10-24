@@ -142,10 +142,17 @@ const DarkModestyles = StyleSheet.create({
           fontWeight: "bold",
         },
         cardDescription: {
-          fontSize:hp(1.5),
+          fontSize:hp(1.8),
+          fontWeight:'bold',
           color: "#444",
           width:wp(38),
-          height:hp(10),
+          textAlign:'left'
+        },
+        cardsubDescription: {
+          fontSize:hp(1.8),
+          fontWeight:'400',
+          color: Colors.AppgreyColor,
+          width:wp(38),
           textAlign:'left'
         },
         scrollView: {

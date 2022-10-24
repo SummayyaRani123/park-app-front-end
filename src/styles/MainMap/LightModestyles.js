@@ -11,6 +11,8 @@ const CARD_HEIGHT = 150;
 const CARD_WIDTH = width * 0.8;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
 
+import { fontFamily } from '../../constant/fonts';
+
 const LightModestyles = StyleSheet.create({
     container: {
       flex: 1,
@@ -147,10 +149,19 @@ const LightModestyles = StyleSheet.create({
         },
         cardDescription: {
           fontSize:hp(1.8),
-          fontWeight:'500',
-          color: "#444",
+          //fontWeight:'bold',
+          fontFamily:fontFamily.Gibson_Bold,
+          color: Colors.AppgreyColor,
           width:wp(38),
-          textAlign:'center'
+          textAlign:'left'
+        },
+        cardsubDescription: {
+          fontSize:hp(1.6),
+          //fontWeight:'400',
+          color: Colors.greytext,
+          fontFamily:fontFamily.Gibson_Regular,
+          width:wp(38),
+          textAlign:'left'
         },
         lastView: {
           //marginHorizontal: 10,

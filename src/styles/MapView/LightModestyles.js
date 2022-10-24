@@ -136,16 +136,24 @@ const LightModestyles = StyleSheet.create({
 
         },
         cardtitle: {
-          fontSize: hp(2),
+          fontSize: hp(2.5),
           color:'black',
           // marginTop: 5,
-          fontWeight: "bold",
+          fontWeight: "400",
         },
         cardDescription: {
           fontSize:hp(1.5),
+          fontWeight:'500',
           color: "#444",
+          marginTop:hp(1),
+          width:wp(37),
+          textAlign:'left'
+        },
+        cardsubDescription: {
+          fontSize:hp(1.8),
+          fontWeight:'400',
+          color: Colors.AppgreyColor,
           width:wp(38),
-          height:hp(10),
           textAlign:'left'
         },
         scrollView: {
