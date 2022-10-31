@@ -145,7 +145,13 @@ icon={"menu"}
               data={ 
                 savedloc=== true ?savedlocations:findingslocations}
               renderItem={({ item, index, separators }) => (
-  
+      
+                <TouchableOpacity onPress={()=>navigation.navigate('LocationDetail',{navplace:
+                  item.location_id.type==='parking'?'Car Parkings':
+                  item.location_id.type==='walking-route'?'Walking Routes':
+                  item.location_id.type==='toilet'?'Toilets':
+                  item.location_id.type==='dog-walk'?'Dogs Walk':null,
+                locid:item.location_id._id})}>
          <View style={theme === false ? LightModestyles.card:DarkModestyles.card}>
          <Image 
                  source={{uri:item.location_id.images.length === 0 ?null:item.location_id.images[0].image_url}}
@@ -169,7 +175,7 @@ icon={"menu"}
          </View>
 
          </View>
-                                    
+                </TouchableOpacity>                    
 
               )}
               //keyExtractor={item => item.id}

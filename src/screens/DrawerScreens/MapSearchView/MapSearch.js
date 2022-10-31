@@ -10,6 +10,7 @@ import { IconButton } from 'react-native-paper';
 //////////app components/////////
 import LocationsBottomSheet from '../../../components/LocationTypes/LocationTypes';
 import MapThemeBottomSheet from '../../../components/LocationTypes/MapTheme';
+import AddedtosaveBottomSheet from '../../../components/Findings/AddtoSave';
 
 //////////////app pakages////////////
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -60,6 +61,7 @@ const MapSearch = ({navigation}) => {
           //////////locationtype state/////////////
           const refRBSheet = useRef();  
           const refRBSheetmaptypes = useRef();  
+    const refRBSheetSaveAdded=useRef();
 
     ////////////isfocused//////////
     const isfocussed = useIsFocused()
@@ -217,11 +219,12 @@ const GetLocation=async() => {
 const [ParkingDetail, setParkingDetail] = useState();
 const [ParkingID, setParkingID] = useState();
 const [ParkingTime, setParkingTime] = useState();
+const [count, setcount] = useState(1);
+//const count =0
   //////////////Api Calling////////////////////
 const GetUser=async() => {
-
   var user= await AsyncStorage.getItem('Userid')
-  console.log("userid:",user)
+  console.log("userid:",user,count)
   axios({
   method: 'GET',
   url: BASE_URL+'user/getUser/'+user,
@@ -229,6 +232,7 @@ const GetUser=async() => {
   .then(async function (response) {
   console.log("response here in get useer detail", JSON.stringify(response.data))
   setParkingDetail(response.data.userDetails[0].user_parkings[0].isParked)
+  //setParkingDetail(response.data.userDetails[0].user_parkings)
   setParkingID(response.data.userDetails[0].user_parkings[0]._id)
   setParkingTime(response.data.userDetails[0].user_parkings[0].parkTime)
   })
@@ -246,21 +250,22 @@ const [Findings,  setFindings] = React.useState();
 //////////////////////Api Calling/////////////////
 const UnParkCar = async(props) => {
  var user= await AsyncStorage.getItem('Userid')
- console.log("userid:",user)
+ console.log("userid:",user,props)
  var date =new Date().toLocaleString()
 //var totaltime=ParkingTime-date
-console.log("total time of parking:",date.getTime())
+console.log("total time of parking:",date)
    axios({
      method: 'PUT',
      url: BASE_URL + 'parking/unPark',
      data: {
       parkingId : props,
-    unParkTime: date.getTime(),
+    unParkTime: date,
     totalParkingTime :"10 hours"
      },
    })
      .then(function (response) {
        console.log("response", JSON.stringify(response.data))
+       setcount(count+1)
        refRBSheetSaveAdded.current.open()
 
      })
@@ -374,7 +379,7 @@ console.log("total time of parking:",date.getTime())
                   :
                   null
                 }
-       
+      
 
 <Circle center={{latitude:56.002716,longitude:-4.580081}}  radius={1000}
 strokeWidth={1.5}
@@ -410,7 +415,9 @@ fillColor={'rgba(26,81,59,0.2)'}
                 }
         </MapView>
       {ParkingDetail === true?   
-       <TouchableOpacity onPress={()=>  UnParkCar(ParkingID)}
+       <TouchableOpacity onPress={()=>
+         UnParkCar(ParkingID)
+        }
         style={[LightModestyles.carparkingview,
           {backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
           //allloc === true? Colors.Appthemecolorprimary:'rgba(52, 52, 52, 1)'
@@ -423,9 +430,9 @@ fillColor={'rgba(26,81,59,0.2)'}
                 color={'red'}
                 size={45}
                 style={{display: showText ? 'none' : 'flex'}}
-                onPress={() =>
-                  alllocationtogglebutton()
-                }
+                // onPress={() =>
+                //  // alllocationtogglebutton()
+                // }
               />
             </View>
         </TouchableOpacity>:
@@ -572,6 +579,11 @@ style={LightModestyles.lastView}
               refRBSheet={refRBSheetmaptypes}
               onClose={() => refRBSheetmaptypes.current.close()}
               title={'Gallery'}
+            />
+                                     <AddedtosaveBottomSheet
+              refRBSheet={refRBSheetSaveAdded}
+              onClose={() => {refRBSheetSaveAdded.current.close()}}
+              title={'Sucessfully Add to Saved'}
             />
       </View>
 

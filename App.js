@@ -15,6 +15,7 @@ import LocationDetail from './src/screens/DrawerScreens/WalkingRoutes/Location D
 import Reviews from './src/screens/DrawerScreens/WalkingRoutes/Reviews/Reviews';
 import MapRoute from './src/screens/DrawerScreens/WalkingRoutes/MapRoute/MapRoute';
 import ParkCarRoute from './src/screens/DrawerScreens/WalkingRoutes/MapRoute/CarParking/ParkCarRoute';
+import ParkCars from './src/screens/DrawerScreens/WalkingRoutes/Saved Location/ParkCars';
 
 
 const Stack = createNativeStackNavigator();
@@ -49,6 +50,10 @@ function App() {
         headerShown: false,
         }} />
         <Stack.Screen name="ParkCarRoute" component={ParkCarRoute}
+        options={{
+        headerShown: false,
+        }} />
+        <Stack.Screen name="ParkCars" component={ParkCars}
         options={{
         headerShown: false,
         }} />

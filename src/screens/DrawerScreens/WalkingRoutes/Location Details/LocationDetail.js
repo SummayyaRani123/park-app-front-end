@@ -38,7 +38,7 @@ import styles from "../../MapSearchView/styles";
 
 
 const LocationDetail= ({navigation,route}) => {
-
+console.log("navp,ace ghere:",route.params)
       ////////////isfocused//////////
       const isfocussed = useIsFocused()
 
@@ -94,7 +94,10 @@ axios({
   console.log("error", error)
 })
 }                         
-const [findingsmessage, setfindingsmessage]=useState('')                                                                                 
+const [findingsmessage, setfindingsmessage]=useState('')                             
+///////////findings ststus states
+const [findingsStatus, setfindingsStatus]=useState('')
+const [SavedStatus, setSavedStatus]=useState('')                                                    
 //get findings api calling
 const GetFindingsDetail= async(props) => {
   var user= await AsyncStorage.getItem('Userid')
@@ -107,6 +110,8 @@ axios({
   setfindingsmessage(response.data.result)
   setfindingsID(response.data.result._id)
   setfindings(response.data.result.findings)
+  setSavedStatus(response.data.result.savedStatus)
+  setfindingsStatus(response.data.result.savedStatus)
 })
 .catch(function (error) {
   console.log("error", error)
@@ -137,7 +142,7 @@ useEffect(() => {
     GetFindParkCar()
     GetFindingsDetail()
 }
-},[isfocussed,data]);
+},[isfocussed]);
 
 ///////////////Data states/////////
 const [Findings,  setFindings] = React.useState();
@@ -322,7 +327,7 @@ icon={'chevron-back'}
         <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationTime}</Text>
     </View>
         </View>}
-        <View style={{flexDirection:'row',marginHorizontal:wp(10)}}>
+        <View style={{flexDirection:'row',marginHorizontal:wp(3)}}>
         </View>
         <TouchableOpacity onPress={()=> 
        //  {reviews()
