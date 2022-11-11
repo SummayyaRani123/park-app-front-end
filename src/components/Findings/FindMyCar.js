@@ -186,17 +186,20 @@ const showTimepicker = () => {
         <TouchableOpacity  onPress={showTimepicker}>
     <TextInput
       //label="Enter Your Name"
-      editable={false}
+      disabled={false}
       onChangeText={onChangeTime}
       value={showTimewise}
-      style={[styles.paperinput,{  backgroundColor: theme === false? 'white':'rgba(52, 52, 52, 0.5)'}]}
+      style={[styles.paperinput,{  backgroundColor: theme === false? 'white':'rgba(52, 52, 52, 0.5)',
+      color:theme === false? 'white':'rgba(52, 52, 52, 0.5)',
+    }]}
       mode={'outlined' }
+      color={theme === false? 'white':'rgba(52, 52, 52, 0.5)'}
       outlineColor={Colors.Appthemecolorprimary}
       activeOutlineColor={Colors.Appthemecolorprimary}
       placeholder="Time For Parking"
       placeholderTextColor={ theme === false?"black":'white'}
       textColor={theme === false?"black":'white'}
-      theme={{ colors: 'red'}}
+      theme={{ colors: 'grey'}}
       // value={text}
       // onChangeText={text => setText(text)}
     />

@@ -142,7 +142,7 @@ useEffect(() => {
     GetFindParkCar()
     GetFindingsDetail()
 }
-},[isfocussed]);
+},[isfocussed,findingsStatus,SavedStatus]);
 
 ///////////////Data states/////////
 const [Findings,  setFindings] = React.useState();
@@ -327,7 +327,7 @@ icon={'chevron-back'}
         <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{LocationTime}</Text>
     </View>
         </View>}
-        <View style={{flexDirection:'row',marginHorizontal:wp(3)}}>
+        <View style={{flexDirection:'row',marginHorizontal:predata.navplace === 'Car Parkings'?wp(2):wp(12)}}>
         </View>
         <TouchableOpacity onPress={()=> 
        //  {reviews()
@@ -420,7 +420,9 @@ icon={'chevron-back'}
           //justifyContent:'space-between'
         }}>
                 <TouchableOpacity    
-                style={{alignSelf:'flex-end',marginBottom:hp(1)}}
+                style={{alignSelf:'flex-end',marginBottom:hp(1),backgroundColor:Colors.Appthemecolorprimary,
+              height:hp(5),width:wp(15),borderRadius:wp(3),alignItems:'center',justifyContent:'center'
+              }}
                 onPress={() => 
           refRBSheetEditFindings.current.open()}>
 

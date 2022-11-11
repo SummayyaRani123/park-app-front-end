@@ -105,7 +105,7 @@ const GetFindingsLocation=async(props) => {
            alignItems:"center",marginHorizontal:wp(8)
             }}>
                                        <CustomHeader
-headerlabel={'Saved Locations'}
+headerlabel={'SavedFindings'}
 iconPress={() => {navigation.toggleDrawer()}}
 icon={"menu"}
 />
@@ -126,7 +126,7 @@ icon={"menu"}
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>{setSavedLoc(false),setFindings(true)}}>
             <TabsBadgeView
-             title={'Findings'}
+             title={'Location Findings'}
              width={'30%'}
              state={findings}
              type={'Job name here'}
@@ -141,48 +141,54 @@ icon={"menu"}
         marginBottom:hp(18),
                       // /backgroundColor:"yellow"
                             }}>
-             <FlatList
-              data={ 
-                savedloc=== true ?savedlocations:findingslocations}
-              renderItem={({ item, index, separators }) => (
+                              {savedlocations === ''?null:
+                                     <FlatList
+                                     data={ 
+                                       savedloc=== true ?savedlocations:findingslocations}
+                                     renderItem={({ item, index, separators }) => (
+                             
+                                       <TouchableOpacity onPress={()=>navigation.navigate('LocationDetail',{navplace:
+                                         item.location_id.type==='parking'?'Car Parkings':
+                                         item.location_id.type==='walking-route'?'Walking Routes':
+                                         item.location_id.type==='toilet'?'Toilets':
+                                         item.location_id.type==='dog-walk'?'Dogs Walk':null,
+                                       locid:item.location_id._id})}>
+                                <View style={theme === false ? LightModestyles.card:DarkModestyles.card}>
+                                 {item.location_id.images.length === 0?null:
+                                          <Image 
+                                          source={{uri:item.location_id.images.length <= 1 ?null:item.location_id.images[0].image_url}}
+                                          style={DarkModestyles.cardImage}
+                                          resizeMode="cover"
+                                        />
+                                 
+                                 }
+                       
+                                  <View style={LightModestyles.textContent}>
+                                    <Text numberOfLines={1} style={theme === false ?LightModestyles.cardtitle:DarkModestyles.cardtitle}>{item.location_id.title}</Text>
+                                    <View style={{flexDirection:"row"}}>
+                                    <Text numberOfLines={5} style={theme === false ?LightModestyles.cardDescription:DarkModestyles.cardDescription}>
+                                        {item.location_id.description}</Text>
+                                    <View style={{marginTop:hp(5)}}>
+                                    <Image 
+                                        source={require('../../../../assets/Home/save.png')}
+                                        style={{width:wp(5),height:hp(5)}}
+                                        resizeMode='contain'
+                                      />
+                                      </View>
+                                  </View>
+                                </View>
+                       
+                                </View>
+                                       </TouchableOpacity>                    
+                       
+                                     )}
+                                     //keyExtractor={item => item.id}
+                                     keyExtractor={(item, index) => index.toString()}
+                                     showsVerticalScrollIndicator={false}
+                                     showsHorizontalScrollIndicator={false}
+                                   />
+                              }
       
-                <TouchableOpacity onPress={()=>navigation.navigate('LocationDetail',{navplace:
-                  item.location_id.type==='parking'?'Car Parkings':
-                  item.location_id.type==='walking-route'?'Walking Routes':
-                  item.location_id.type==='toilet'?'Toilets':
-                  item.location_id.type==='dog-walk'?'Dogs Walk':null,
-                locid:item.location_id._id})}>
-         <View style={theme === false ? LightModestyles.card:DarkModestyles.card}>
-         <Image 
-                 source={{uri:item.location_id.images.length === 0 ?null:item.location_id.images[0].image_url}}
-                 style={DarkModestyles.cardImage}
-                 resizeMode="cover"
-               />
-        
-           <View style={LightModestyles.textContent}>
-             <Text numberOfLines={1} style={theme === false ?LightModestyles.cardtitle:DarkModestyles.cardtitle}>{item.location_id.title}</Text>
-             <View style={{flexDirection:"row"}}>
-             <Text numberOfLines={5} style={theme === false ?LightModestyles.cardDescription:DarkModestyles.cardDescription}>
-                 {item.location_id.description}</Text>
-             <View style={{marginTop:hp(5)}}>
-             <Image 
-                 source={require('../../../../assets/Home/save.png')}
-                 style={{width:wp(5),height:hp(5)}}
-                 resizeMode='contain'
-               />
-               </View>
-           </View>
-         </View>
-
-         </View>
-                </TouchableOpacity>                    
-
-              )}
-              //keyExtractor={item => item.id}
-              keyExtractor={(item, index) => index.toString()}
-              showsVerticalScrollIndicator={false}
-              showsHorizontalScrollIndicator={false}
-            />
     </View>
 
     </SafeAreaView>

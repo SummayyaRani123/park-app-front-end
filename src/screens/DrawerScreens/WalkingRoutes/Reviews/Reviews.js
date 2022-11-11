@@ -84,7 +84,7 @@ setdata(response.data.result.reverse())
 
     <SafeAreaView style={theme === false? LightModestyles.container:DarkModestyles.container}>
                   <View style={{flexDirection:'row',paddingTop:20,
-           alignItems:"center",marginHorizontal:wp(8)
+           alignItems:"center",marginHorizontal:wp(3)
             }}>
 
                                    <CustomHeader

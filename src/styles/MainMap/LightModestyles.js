@@ -176,8 +176,8 @@ const LightModestyles = StyleSheet.create({
           paddingRight: width - CARD_WIDTH,
         },
         marker: {
-          width: 30,
-          height: 30,
+          width:wp(10),
+          height: hp(10),
         },
         carparkingview: {
           alignSelf:'flex-end',

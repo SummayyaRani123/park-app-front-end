@@ -19,7 +19,16 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
       height: Height * 0.07,
       width: Width ,
-      paddingHorizontal:wp(3)
+      paddingHorizontal:wp(3),
+        shadowColor: "#000",
+  shadowOffset: {
+      width: 0,
+      height: 3,
+  },
+  shadowOpacity: 0.27,
+  shadowRadius: 4.65,
+  
+  elevation: 6,
     },
     iconview:
     { 

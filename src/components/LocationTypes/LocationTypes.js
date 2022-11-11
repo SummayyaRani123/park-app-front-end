@@ -182,7 +182,7 @@ const navigation = useNavigation();
 >
 <View style={{
   //backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
-      height:hp(5),justifyContent:'center',
+      height:hp(5),justifyContent:'center',marginBottom:hp(3),
     width:wp(100),borderTopLeftRadius:wp(2),borderTopRightRadius:wp(2)}}>
      <TouchableOpacity onPress={()=> props.refRBSheet.current.close()}>
       <View style={{flexDirection:'row',marginHorizontal:wp(5),alignItems:'center'}}>
@@ -196,10 +196,10 @@ const navigation = useNavigation();
                  // theme === false ? 'black':'white'
                 }]}
                 >What 's Nearby</Text>
-                      <Text
+                      {/* <Text
               style={[LightModestyles.cardsubDescription,
                 {color:theme === false ? 'black':'white'}]}
-                >Lorem</Text>
+                >Lorem</Text> */}
           </View>
           {/* <View>
           <Text style={styles.sidetext}>What's Nearby</Text>

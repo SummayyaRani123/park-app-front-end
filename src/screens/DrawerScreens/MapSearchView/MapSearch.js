@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef} from 'react';
 // Import required components
-import {SafeAreaView, StyleSheet,TextInput,  Animated,ScrollView,
+import {SafeAreaView, StyleSheet,TextInput,  Animated,ScrollView,BackHandler,
   Dimensions,Image,
      View,Text,TouchableOpacity,ActivityIndicator,TouchableHighlight
 } from 'react-native';
@@ -273,6 +273,36 @@ console.log("total time of parking:",date)
        console.log("error", error)
      })
  }
+ useEffect(() => {
+  // back handle exit app
+  BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
+  return () => {
+      BackHandler.removeEventListener('hardwareBackPress', backButtonHandler);
+  };
+}, []);
+let backHandlerClickCount = 0;
+const backButtonHandler = () => {
+  const shortToast = message => {
+      Toast.show(message, {
+          duration: Toast.durations.LONG,
+          position: Toast.positions.BOTTOM,
+      });
+  }
+  let backHandlerClickCount;
+  backHandlerClickCount += 1;
+  if ((backHandlerClickCount < 2)) {
+      shortToast('Press again to quit the application');
+  } else {
+      BackHandler.exitApp();
+  }
+
+  // timeout for fade and exit
+  setTimeout(() => {
+      backHandlerClickCount = 0;
+  }, 1000);
+  
+  return true;
+}
   return (
       <View style={[LightModestyles.container,{marginBottom:mapmargin, backgroundColor: theme === false? 'white':'  black'}]}>
         <MapView
@@ -333,7 +363,7 @@ console.log("total time of parking:",date)
                     null
                   }
                   style={[LightModestyles.marker]}
-                  resizeMode='cover'
+                  resizeMode='contain'
                 />
                     <Text numberOfLines={2} 
               style={[LightModestyles.cardDescription,
