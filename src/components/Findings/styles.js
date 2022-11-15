@@ -67,7 +67,7 @@ borderRadius:wp(2),
     justifyContent: "flex-start",
 backgroundColor:'white',
 borderRadius:wp(5),
-color:'grey'
+color:'black'
   },
   button:
   {

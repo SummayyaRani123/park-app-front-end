@@ -132,10 +132,7 @@ icon={"menu"}
              type={'Job name here'}
                />
             </TouchableOpacity>
-           
           </View>
-
-        
                         <View style={{
         marginTop:hp(3),
         marginBottom:hp(18),
@@ -160,7 +157,6 @@ icon={"menu"}
                                           style={DarkModestyles.cardImage}
                                           resizeMode="cover"
                                         />
-                                 
                                  }
                        
                                   <View style={LightModestyles.textContent}>

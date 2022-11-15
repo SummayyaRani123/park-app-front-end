@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
     headerView: {
       flexDirection: 'row',
       backgroundColor: 'white',
+      alignItems:'center',
+      //justifyContent:'center',
       height: Height * 0.07,
       width: Width ,
       paddingHorizontal:wp(3),
@@ -37,17 +39,16 @@ const styles = StyleSheet.create({
      },
     labelView: {
       marginHorizontal: wp(5),
-      flexDirection: 'column',
-      width: Width * 0.7,
-  
+      //width: Width * 0.7,
+  justifyContent:"center"
     },
 
 label:
 { 
     color: Colors.Appthemecolorprimary,
      fontSize: hp(2.2), 
-     fontWeight: "400", 
-     marginTop: 15 
+     fontWeight: "bold", 
+     //marginTop:hp(2.5)
     }
 
   });

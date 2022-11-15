@@ -11,6 +11,7 @@ import { IconButton } from 'react-native-paper';
 import LocationsBottomSheet from '../../../components/LocationTypes/LocationTypes';
 import MapThemeBottomSheet from '../../../components/LocationTypes/MapTheme';
 import AddedtosaveBottomSheet from '../../../components/Findings/AddtoSave';
+import CustomHeader from '../../../components/Header/CustomHeader';
 
 //////////////app pakages////////////
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -273,36 +274,36 @@ console.log("total time of parking:",date)
        console.log("error", error)
      })
  }
- useEffect(() => {
-  // back handle exit app
-  BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
-  return () => {
-      BackHandler.removeEventListener('hardwareBackPress', backButtonHandler);
-  };
-}, []);
-let backHandlerClickCount = 0;
-const backButtonHandler = () => {
-  const shortToast = message => {
-      Toast.show(message, {
-          duration: Toast.durations.LONG,
-          position: Toast.positions.BOTTOM,
-      });
-  }
-  let backHandlerClickCount;
-  backHandlerClickCount += 1;
-  if ((backHandlerClickCount < 2)) {
-      shortToast('Press again to quit the application');
-  } else {
-      BackHandler.exitApp();
-  }
+//  useEffect(() => {
+//   // back handle exit app
+//   BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
+//   return () => {
+//       BackHandler.removeEventListener('hardwareBackPress', backButtonHandler);
+//   };
+// }, []);
+// let backHandlerClickCount = 0;
+// const backButtonHandler = () => {
+//   const shortToast = message => {
+//       Toast.show(message, {
+//           duration: Toast.durations.LONG,
+//           position: Toast.positions.BOTTOM,
+//       });
+//   }
+//   let backHandlerClickCount;
+//   backHandlerClickCount += 1;
+//   if ((backHandlerClickCount < 2)) {
+//       shortToast('Press again to quit the application');
+//   } else {
+//       BackHandler.exitApp();
+//   }
 
-  // timeout for fade and exit
-  setTimeout(() => {
-      backHandlerClickCount = 0;
-  }, 1000);
+//   // timeout for fade and exit
+//   setTimeout(() => {
+//       backHandlerClickCount = 0;
+//   }, 1000);
   
-  return true;
-}
+//   return true;
+// }
   return (
       <View style={[LightModestyles.container,{marginBottom:mapmargin, backgroundColor: theme === false? 'white':'  black'}]}>
         <MapView
@@ -444,6 +445,11 @@ fillColor={'rgba(26,81,59,0.2)'}
                   null
                 }
         </MapView>
+        <CustomHeader
+headerlabel={ 'BALOCH PARK'}
+iconPress={() => {navigation.toggleDrawer()}}
+icon={'menu'}
+/>
       {ParkingDetail === true?   
        <TouchableOpacity onPress={()=>
          UnParkCar(ParkingID)
@@ -483,7 +489,7 @@ fillColor={'rgba(26,81,59,0.2)'}
                       icon={require('../../../assets/Home/eye.png')}
                       //icon="image"
                       color={allloc === true? 'white':Colors.Appthemecolorprimary}
-                      size={25}
+                      size={wp(6)}
                       onPress={() =>
                         alllocationtogglebutton()
                       }
@@ -506,7 +512,7 @@ fillColor={'rgba(26,81,59,0.2)'}
                    icon={require('../../../assets/Home/eye.png')}
                    //icon="image"
                    color={allloc === true? 'white':Colors.Appthemecolorprimary}
-                   size={25}
+                   size={wp(6)}
                    onPress={() =>
                      alllocationtogglebutton()
                    }
@@ -527,19 +533,19 @@ fillColor={'rgba(26,81,59,0.2)'}
             //theme === false ? 'white':'rgba(52, 52, 52, 1)'
           }]}
            >
-              <View style={LightModestyles.textContent}>
+           
               <IconButton
                   icon={require('../../../assets/Home/currentlocation.png')}
                   //icon="image"
                   color={usercurrloc === true? 'white':Colors.Appthemecolorprimary}
-                  size={25}
+                  size={24}
                   onPress={() =>
                    { 
                     userlocationtogglebutton()
                   }
                   }
                 />
-              </View>
+      
               
             </View>
           </TouchableOpacity>
@@ -560,7 +566,7 @@ fillColor={'rgba(26,81,59,0.2)'}
                   icon={require('../../../assets/Home/currentlocation.png')}
                   //icon="image"
                   color={usercurrloc === true? 'white':Colors.Appthemecolorprimary}
-                  size={25}
+                  size={wp(10)}
                   onPress={() =>
                    { 
                     userlocationtogglebutton()
@@ -579,7 +585,9 @@ style={LightModestyles.lastView}
       <View style={{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
       height:hp(12),borderTopWidth:8,borderTopColor:Colors.Appthemecolorprimary,
     width:wp(100),borderTopLeftRadius:wp(2),borderTopRightRadius:wp(2),justifyContent:'center'}}>
-      <TouchableOpacity onPress={()=> refRBSheet.current.open()}>
+      <TouchableOpacity onPress={()=> refRBSheet.current.open()}
+       activeOpacity={1}
+      >
       <View style={{flexDirection:'row',marginHorizontal:wp(5),alignItems:'center'}}>
       <Ionicons name={'chevron-up'} size={23} 
           color= {theme ===false? 'grey':'white'}
@@ -587,14 +595,14 @@ style={LightModestyles.lastView}
           <View style={{marginLeft:wp(3)}}>
           <Text numberOfLines={2} 
               style={[LightModestyles.cardDescription,
-                {color:Colors.Appthemecolorprimary
+                {color:Colors.Appthemecolorprimary,marginTop:hp(0)
                  // theme === false ? 'black':'white'
                 }]}
                 >What 's Nearby</Text>
-                      <Text numberOfLines={5} 
+                      {/* <Text numberOfLines={5} 
               style={[LightModestyles.cardsubDescription,
                 {color:theme === false ? 'black':'white'}]}
-                >Lorem</Text>
+                >Lorem</Text> */}
           </View>
           </View>
       </TouchableOpacity>

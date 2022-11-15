@@ -85,12 +85,13 @@ alignSelf:'center',
       fontWeight:'400'
 },
 Topicsview:{
-  marginTop:wp("2%"),
+ marginTop:hp(3),
  flexDirection:'row',
  justifyContent: 'space-between' ,
  marginLeft:wp(3),
  alignItems:"center",
- marginBottom:hp(2)
+ marginBottom:hp(2),
+// paddingVertical:hp(1)
 },
 SeeView:
 {
@@ -125,19 +126,34 @@ flatlistmainview:
 {
   marginBottom:hp(0),
   marginHorizontal:wp(1),
-  alignItems:'center' 
+  alignItems:'center' ,
+  borderColor:Colors.greylight,
+  borderWidth:1,
+  borderRadius:wp(3),
+ // backgroundColor:Colors.Appthemecolorprimary
+},
+textview:
+{
+  backgroundColor: Colors.Appthemecolorprimary,
+  width: wp(28),
+  //position: 'absolute',
+  bottom:hp(0.1),
+  paddingLeft:wp(2),
+  padding:wp(1),
+  borderBottomLeftRadius:wp(2),
+  borderBottomRightRadius:wp(2),
 },
 flatlisttitletext:
 {
    color: 'white',
    width:wp(20),
-                    fontWeight:'bold',
-                    marginTop:hp(1),
-                    position:'absolute',
-                    bottom:hp(2.5),
-                    textShadowOffset: {width: 2, height: 2},
-                    textShadowRadius: 10,
-                    textShadowColor: Colors.Appthemecolorprimary,
+                    // /fontWeight:'bold',
+                    marginTop:hp(0),
+                  //  / position:'absolute',
+                    bottom:hp(0.2),
+                   // textShadowOffset: {width: 5, height: 2},
+                    //textShadowRadius: 5,
+                    //textShadowColor: 'black'
                     },
                     flatlistsubtitletext:
 {
@@ -153,11 +169,15 @@ flatlisttitletext:
                     },
                     flatlistimgesview:
                     {
-                      height:hp(14),width:wp(26),borderRadius:wp(3)},
+                      height:hp(18),width:wp(26),borderRadius:wp(3)},
                       flatlistimage:
 {
-                        borderRadius: 15, borderWidth: 1,
-                        borderColor: 'black', padding: 10
+  borderTopLeftRadius:wp(2),
+  borderTopRightRadius:wp(2),
+                       // borderRadius: 15,
+                         borderWidth: 1,
+                        //borderColor: 'black', 
+                        //padding: 10
                       }
 });
 export default styles;

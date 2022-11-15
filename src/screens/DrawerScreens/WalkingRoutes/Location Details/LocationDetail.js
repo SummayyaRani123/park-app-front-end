@@ -365,15 +365,27 @@ icon={'chevron-back'}
         </TouchableOpacity>
     </View>
     {findings !=''  && predata.navplace === 'Car Parkings'?
-           <View style={{flexDirection:'row',marginHorizontal:wp(8),justifyContent:'space-between',marginTop:hp(3)}}>
-           <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{findings}</Text>
-           <TouchableOpacity      onPress={() => 
-              refRBSheetEditFindings.current.open()}>
-           <Text style={theme === false?[LightModestyles.belowtext,{fontWeight:'bold'}]:
-           [DarkModestyles.belowtext,{fontWeight:'bold'}]}>Edit</Text>
-           </TouchableOpacity>
+         <OutlineButton
+         title={'Edit Findings'}
+         widthset={'70%'}
+         //iscolor={'walking'}
+       //   loading={loading}
+       //   disabled={disable}
+         onPress={() =>   
+          navigation.navigate('ParkCarRoute',{Cordinates:findparkCarCoord})
+          //   refFindMyCarRBSheet.current.open()
+        }
+       />
+    //        <View style={{flexDirection:'row',marginHorizontal:wp(8),justifyContent:'space-between',marginTop:hp(3)}}>
+    //        <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{findings}</Text>
+    //        <TouchableOpacity      onPress={() => 
+    //           refRBSheetEditFindings.current.open()}>
+    //        <Text style={theme === false?[LightModestyles.belowtext,{fontWeight:'bold'}]:
+    //        [DarkModestyles.belowtext,{fontWeight:'bold'}]}>Edit</Text>
+    //        </TouchableOpacity>
      
-     </View>:null}
+    //  </View>
+    :null}
     {     predata.navplace === 'Car Parkings'?
       <View style={[LightModestyles.buttonview,{justifyContent:'center', marginHorizontal:wp(8),
       alignItems:'center'}]}>
@@ -414,12 +426,13 @@ icon={'chevron-back'}
           onPress={() =>      refRBSheet.current.open()}
         />
         :
+
         <View style={{
           //flexDirection:'row',
           marginHorizontal:wp(8),
           //justifyContent:'space-between'
         }}>
-                <TouchableOpacity    
+                {/* <TouchableOpacity    
                 style={{alignSelf:'flex-end',marginBottom:hp(1),backgroundColor:Colors.Appthemecolorprimary,
               height:hp(5),width:wp(15),borderRadius:wp(3),alignItems:'center',justifyContent:'center'
               }}
@@ -428,10 +441,21 @@ icon={'chevron-back'}
 
        <Text style={theme === false?[LightModestyles.belowtext,{fontWeight:'bold'}]:
        [DarkModestyles.belowtext,{fontWeight:'bold'}]}>Edit</Text>
-       </TouchableOpacity>
+       </TouchableOpacity> */}
  
        <Text style={theme === false?LightModestyles.belowtext: DarkModestyles.belowtext}>{findings}</Text>
- 
+       <View style={{marginTop:hp(3)}}></View>
+        <OutlineButton
+         title={'Edit Findings'}
+         widthset={'70%'}
+         //iscolor={'walking'}
+       //   loading={loading}
+       //   disabled={disable}
+         onPress={() =>   
+          navigation.navigate('ParkCarRoute',{Cordinates:findparkCarCoord})
+          //   refFindMyCarRBSheet.current.open()
+        }
+       />
  </View>
  
      }

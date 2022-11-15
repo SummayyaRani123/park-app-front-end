@@ -100,7 +100,7 @@ const EditFindingsBottomSheet= (props) => {
 <View style={styles.textAreaContainer}>
     <TextInput
           onChangeText={setFindings}
-      style={[styles.papertextArea,,{  backgroundColor: theme === false? 'white':'rgba(52, 52, 52, 0.5)'}]}
+      style={[styles.papertextArea,,{  backgroundColor: theme === false? 'white':'rgba(52, 52, 52, 0.5)',color:'black'}]}
       mode={'outlined' }
       outlineColor={Colors.Appthemecolorprimary}
       activeOutlineColor={Colors.Appthemecolorprimary}
@@ -108,7 +108,7 @@ const EditFindingsBottomSheet= (props) => {
       placeholderTextColor={ theme === false?"black":'white'}
       numberOfLines={10}
       multiline={true}
-      textColor={theme === false?"black":'white'}
+      textColor={theme === false?"white":'black'}
       theme={{ colors: 'red'}}
     />
   </View>

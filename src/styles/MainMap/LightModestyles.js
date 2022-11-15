@@ -130,8 +130,10 @@ const LightModestyles = StyleSheet.create({
   
         },
         textContent: {
-          flex: 2,
-          padding: 10,
+          //flex: 2,
+          //padding: 10,
+          alignItems:'center',
+          justifyContent:'center'
         },
         carContent: {
           //flex: 2,
@@ -148,11 +150,11 @@ const LightModestyles = StyleSheet.create({
           fontWeight: "bold",
         },
         cardDescription: {
-          fontSize:hp(1.8),
-          //fontWeight:'bold',
-          fontFamily:fontFamily.Gibson_Bold,
-          color: Colors.AppgreyColor,
-          width:wp(38),
+          fontSize:hp(2),
+          fontWeight:'bold',
+          color: "#444",
+          marginTop:hp(1),
+          width:wp(37),
           textAlign:'left'
         },
         cardsubDescription: {
@@ -206,11 +208,14 @@ const LightModestyles = StyleSheet.create({
           shadowRadius: 6,
           shadowOpacity: 0.5,
           shadowOffset: { x: 2, y: -2 },
-          height: hp(8),
-          width: wp(17.5),
+          // height: hp(8),
+          // width: wp(17.5),
           overflow: "hidden",
           borderRadius:wp(4),
-          marginBottom:hp(2)
+          marginBottom:hp(2),
+          justifyContent:'center',
+          alignItems:'center',
+          padding:hp(0.7)
         },
         currentlocationviewtext: {
           fontSize:hp(1.8),

@@ -131,15 +131,18 @@ console.log("error", error)
            :
            <StatusBar backgroundColor='black' barStyle='light-content'/>
       }
+   
         <View style={styles.header}>
             <Animatable.Image 
                 animation="bounceIn"
                 duraton="1500"
-            source={require('../../../assets/Auth/logo.png')}
+            source={ theme === false?require('../../../assets/Auth/logo.png'):null}
             style={styles.logo}
-            resizeMode="stretch"
+            resizeMode='cover'
             />
+         
         </View>
+     
         <View 
             style={[styles.footer, {
                 backgroundColor: '#1A513B'

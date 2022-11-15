@@ -110,6 +110,7 @@ const formValidation = async () => {
     <TextInput
           onChangeText={setFindings}
       style={[styles.papertextArea,{backgroundColor: theme === false? 'white':'rgba(52, 52, 52, 0.5)',
+      color:'black'
    // color: theme === false? ''
     }]}
       mode={'outlined'}
@@ -119,7 +120,8 @@ const formValidation = async () => {
       placeholderTextColor={theme === false?"black":'white'}
       numberOfLines={10}
       multiline={true}
-      textColor={theme === false?"black":'white'}
+      textColor={'black'}
+      //textColor={theme === false?"black":'white'}
       theme={{ colors: 'red'}}
     />
   </View>

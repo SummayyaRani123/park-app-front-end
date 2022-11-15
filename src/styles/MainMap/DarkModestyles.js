@@ -138,11 +138,12 @@ const DarkModestyles = StyleSheet.create({
           fontWeight: "bold",
         },
         cardDescription: {
-          fontSize:hp(1.8),
-          fontWeight:'500',
+          fontSize:hp(2),
+          fontWeight:'bold',
           color: "#444",
-          width:wp(38),
-          textAlign:'center'
+          marginTop:hp(1),
+          width:wp(37),
+          textAlign:'left'
         },
         lastView: {
           marginHorizontal: 10,

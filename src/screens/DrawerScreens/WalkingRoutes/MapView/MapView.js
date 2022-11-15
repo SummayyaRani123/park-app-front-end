@@ -498,7 +498,9 @@ icon={'menu'}
       >
         {route.params === 'WalkingRoute' && WalkingRoutes != ''?
         WalkingRoutes.map((marker, index) =>(
-          <TouchableOpacity onPress={async ()=>
+          <TouchableOpacity
+          activeOpacity={1}
+          onPress={async ()=>
            {
            //reduxwalkingroutes(marker)
      //await
@@ -540,7 +542,9 @@ icon={'menu'}
       :
       route.params === 'DogWalks' && DogWalks != ''?
         DogWalks.map((marker, index) =>(
-          <TouchableOpacity onPress={()=>navigation.navigate('LocationDetail',{navplace:'Dogs Walk',locid:marker._id})}>
+          <TouchableOpacity 
+          activeOpacity={1}
+          onPress={()=>navigation.navigate('LocationDetail',{navplace:'Dogs Walk',locid:marker._id})}>
           <View style={[LightModestyles.card,{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)'}]} 
            key={index}>
           <Image 
@@ -570,7 +574,9 @@ icon={'menu'}
         :
         route.params === 'CarParkings' && Parking != '' ?
         Parking.map((marker, index) =>(
-          <TouchableOpacity onPress={()=>navigation.navigate('LocationDetail',{navplace:'Car Parkings',locid:marker._id})}>
+          <TouchableOpacity 
+          activeOpacity={1}
+          onPress={()=>navigation.navigate('LocationDetail',{navplace:'Car Parkings',locid:marker._id})}>
           <View style={[LightModestyles.card,{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)'}]} 
            key={index}>
           <Image 
@@ -601,7 +607,9 @@ icon={'menu'}
         route.params === 'Toilets' && Toilets != ''?
       Toilets.map((marker, index) =>(
 
-        <TouchableOpacity onPress={()=>navigation.navigate('LocationDetail',{navplace:'Toilets',locid:marker._id})}>
+        <TouchableOpacity 
+        activeOpacity={1}
+        onPress={()=>navigation.navigate('LocationDetail',{navplace:'Toilets',locid:marker._id})}>
           <View style={[LightModestyles.card,{backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)'}]} 
            key={index}>
           <Image 

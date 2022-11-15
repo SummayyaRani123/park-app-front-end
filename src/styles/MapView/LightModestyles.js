@@ -142,8 +142,8 @@ const LightModestyles = StyleSheet.create({
           fontWeight: "400",
         },
         cardDescription: {
-          fontSize:hp(1.5),
-          fontWeight:'500',
+          fontSize:hp(2),
+          fontWeight:'bold',
           color: "#444",
           marginTop:hp(1),
           width:wp(37),
