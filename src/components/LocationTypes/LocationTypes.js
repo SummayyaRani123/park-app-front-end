@@ -198,7 +198,7 @@ const LocationsBottomSheet = props => {
         style={{marginHorizontal: wp(2)}}>
         <View
           style={{
-            backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
+            //backgroundColor:theme === false ? 'white':'rgba(52, 52, 52, 1)',
             // height:hp(5),
             paddingVertical: wp(1),
             justifyContent: 'center',

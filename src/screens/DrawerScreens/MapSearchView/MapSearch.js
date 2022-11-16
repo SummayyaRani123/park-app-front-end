@@ -566,7 +566,7 @@ icon={'menu'}
                   icon={require('../../../assets/Home/currentlocation.png')}
                   //icon="image"
                   color={usercurrloc === true? 'white':Colors.Appthemecolorprimary}
-                  size={wp(10)}
+                  size={24}
                   onPress={() =>
                    { 
                     userlocationtogglebutton()
